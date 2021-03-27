@@ -60,7 +60,7 @@
     
     OPSCNutM6WidthShortTrue = 10;    
     OPSCNutM6WidthShort3D = 11; //needs to be the long side    
-    #OPSCNutM6WidthShort = s=="3DPR" ? OPSCNutM6WidthShort3D : OPSCNutM6WidthShortTrue;
+    //OPSCNutM6WidthShort = s=="3DPR" ? OPSCNutM6WidthShort3D : OPSCNutM6WidthShortTrue;
     
     
     OPSCNutM6HeightTrue = 5;    //actually 4.85 extra for clearance
