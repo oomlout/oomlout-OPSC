@@ -14,39 +14,30 @@
     OPSCfirstLayerLipDepth = 0.2;
 
     // HOLES
-    OPSCHoleTrue = 6/2;
-    OPSCHole3D  = 6.5/2;
-    OPSCHoleLaser = 6/2;
-    OPSCHole = s=="3DPR" ? OPSCHole3D : OPSCHoleTrue;
-    echo("                  OPSCHole =",OPSCHole);
+    OPSCHole = s=="3DPR" ? 6.5/2 : 6/2;
+
+    holeM3 = s=="3DPR" ? 3.4/2 : 3/2;
+    holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
+    holeM5 = s=="3DPR" ? 5.4/2 : 5/2;
+    holeM6 = s=="3DPR" ? 6.5/2 : 6/2;
+    holeM8 = s=="3DPR" ? 8.6/2 : 8/2;
+    holeM10 = s=="3DPR" ? 10.6/2 : 10/2;
     
 
     // Bearings
-    OPSCBearing606BigTrue = 17/2;
-    OPSCBearing606Big3D  = 17.5/2;
-    
-    OPSCBearing606Big = s=="3DPR" ? OPSCBearing606Big3D : OPSCBearing606BigTrue;
-
-    OPSCBearing606LittleTrue = 14/2;
-    OPSCBearing606Little3D  = 14.5/2;
-    
-    OPSCBearing606Little = s=="3DPR" ? OPSCBearing606Little3D : OPSCBearing606LittleTrue;
+    OPSCBearing606Big = s=="3DPR" ? 17.5/2 : 17/2;
+    OPSCBearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
 
     //6810 Bearing
-    OPSCBearing6810InsideTrue = 50/2;
-    OPSCBearing6810Inside3D  = (OPSCBearing6810InsideTrue-(0.15/2));
-    OPSCBearing6810Inside = s=="3DPR" ? OPSCBearing6810Inside3D : OPSCBearing6810InsideTrue;
-
-    OPSCBearing6810OutsideTrue = 65/2;
-    OPSCBearing6810Outside3D  = (OPSCBearing6810OutsideTrue-(0.2/2));
-    OPSCBearing6810Outside = s=="3DPR" ? OPSCBearing6810Outside3D : OPSCBearing6810OutsideTrue;
+    OPSCBearing6810Inside = s=="3DPR" ? (50/2-(0.15/2)) : 50/2;
+    OPSCBearing6810Outside = s=="3DPR" ? 65/2-(0.2/2) : 65/2;
 
     OPSCBearing6810OutsideHoldTrue = OPSCBearing6810OutsideTrue;
     OPSCBearing6810OutsideHold3D  = (OPSCBearing6810OutsideHoldTrue+(0.6/2)); //0.45 almost large enough going to 0.6 for safetuy margin)
-    OPSCBearing6810OutsideHold = s=="3DPR" ? OPSCBearing6810OutsideHold3D : OPSCBearing6810OutsideHoldTrue;
+    OPSCBearing6810OutsideHold = s=="3DPR" ? 65/2+(0.6/2) : 65/2;
 
-    OPSCBearing6810Little = OPSCBearing6810OutsideTrue-(3/2);
-    OPSCBearing6810LittleInside = OPSCBearing6810InsideTrue+(3/2);
+    OPSCBearing6810Little = 65/2-(3/2);
+    OPSCBearing6810LittleInside =50/2+(3/2);
 
     // NUTS
         //M3
@@ -76,18 +67,6 @@
     OPSCNutM6Height3D = 5;    
     OPSCNutM6Height = s=="3DPR" ? OPSCNutM6Height3D : OPSCNutM6HeightTrue;
     
-    // HOLES
-        //M6
-    OPSCm6HoleTrue = 6/2;
-    OPSCm6Hole3D = 6.5/2;
-    OPSCm6Hole = s=="3DPR" ? OPSCm6Hole3D : OPSCm6HoleTrue;
-    m6Hole = OPSCm6Hole;
-        
-        //M3
-    OPSCm3HoleTrue = 3/2;
-    OPSCm3Hole3D = 3.4/2;
-    OPSCm3Hole = s=="3DPR" ? OPSCm3Hole3D : OPSCm3HoleTrue;
-    m3Hole = OPSCm3Hole;
     
     
     // TABS
