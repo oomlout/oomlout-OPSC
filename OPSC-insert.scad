@@ -13,13 +13,19 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         translate([x,y,z]){
                 rotate([rotX,rotY,rotZ]){
                     //primatives
-                    if(item=="Cylinder"){
+                    if(item=="cylinder"){
                         OPSCCylinder(rad=rad,depth=depth);
+                    } 
+                    if(item=="cube"){
+                        OPSCCube(width=width,height=height,depth=depth);
+                    } 
+                    if(item=="cubeRounded"){
+                        OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
                     }                    
-                    if(item=="Hole"){
+                    if(item=="hole"){
                         OPSCHole(rad);
                     }
-                    if(item=="HoleRect"){
+                    if(item=="holeRect"){
                         OPSCHoleRect(width=width,height=height);
                     }                                    
                     //////////////////    OPSC
@@ -39,11 +45,23 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         }
                     }
                     //////////////////      HOLES
-                    if(item=="M3Hole"){
-                           OPSCHole(m3Hole);
+                    if(item=="holeM3"){
+                           OPSCHole(holeM3);
                     }
-                    if(item=="M6Hole"){
-                           OPSCHole(m6Hole);
+                    if(item=="holeM4"){
+                           OPSCHole(holeM4);
+                    }
+                    if(item=="holeM5"){
+                           OPSCHole(holeM5);
+                    }
+                    if(item=="holeM6"){
+                           OPSCHole(holeM6);
+                    }
+                    if(item=="holeM8"){
+                           OPSCHole(holeM8);
+                    }
+                    if(item=="holeM10"){
+                           OPSCHole(holeM10);
                     }
                     //////////////////      FASTENERS
                     if(item=="M3SocketHeadTop"){ //Just the top

@@ -27,3 +27,21 @@ module OPSCCube(width,height,depth,x=0,y=0,z=0){
         }
     }
 }
+
+module OPSCCubeRounded(width,height,depth,rad=5,x=0,y=0,z=0){
+    translate([x,y,z-depth]){
+        linear_extrude(depth){
+            if(rad==0){
+                offset(r=5){
+                    square([width-rad*2,height-rad*2],true);
+                }
+            }else{                
+                offset(r=rad){
+                    square([width-rad*2,height-rad*2],true);
+                }
+
+                
+            }
+        }
+    }
+}

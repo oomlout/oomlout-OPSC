@@ -31,9 +31,6 @@
     //6810 Bearing
     OPSCBearing6810Inside = s=="3DPR" ? (50/2-(0.15/2)) : 50/2;
     OPSCBearing6810Outside = s=="3DPR" ? 65/2-(0.2/2) : 65/2;
-
-    OPSCBearing6810OutsideHoldTrue = OPSCBearing6810OutsideTrue;
-    OPSCBearing6810OutsideHold3D  = (OPSCBearing6810OutsideHoldTrue+(0.6/2)); //0.45 almost large enough going to 0.6 for safetuy margin)
     OPSCBearing6810OutsideHold = s=="3DPR" ? 65/2+(0.6/2) : 65/2;
 
     OPSCBearing6810Little = 65/2-(3/2);
@@ -60,7 +57,7 @@
     
     OPSCNutM6WidthShortTrue = 10;    
     OPSCNutM6WidthShort3D = 11; //needs to be the long side    
-    //OPSCNutM6WidthShort = s=="3DPR" ? OPSCNutM6WidthShort3D : OPSCNutM6WidthShortTrue;
+    OPSCNutM6WidthShort = s=="3DPR" ? OPSCNutM6WidthShort3D : OPSCNutM6WidthShortTrue;
     
     
     OPSCNutM6HeightTrue = 5;    //actually 4.85 extra for clearance
