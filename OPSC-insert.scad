@@ -12,7 +12,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     color(color,alpha){
         translate([x,y,z]){
                 rotate([rotX,rotY,rotZ]){
-                    //primatives
+                    //////////////////    PRIMATIVES
                     if(item=="cylinder"){
                         OPSCCylinder(rad=rad,depth=depth);
                     } 
@@ -35,13 +35,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }
                     if(item=="OPSCHoleSlot"){
                         union(){
-                            OPSCInsert("OPSCHole");
-                            OPSCInsert("OPSCHole",x=-1);
-                            OPSCInsert("OPSCHole",x=1);
-                            OPSCInsert("OPSCHole",x=-2);
-                            OPSCInsert("OPSCHole",x=2);
-                            OPSCInsert("OPSCHole",x=-3);
-                            OPSCInsert("OPSCHole",x=3);
+                            hull(){
+                                OPSCInsert("OPSCHole",x=-3);
+                                OPSCInsert("OPSCHole",x=3);
+                            }
                         }
                     }
                     //////////////////      HOLES
@@ -90,8 +87,20 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             OPSCInsert("M6Hole",0,0);
                         }
                     }
+                    //////////////////    BEARINGS
                     
-                    
+                    if(item=="bearing606"){
+                            OPSCCylinder(bearing606Big,depth=6);
+                            OPSCCylinder(bearing606Little);
+                    }
+                    if(item=="bearing608"){
+                            OPSCCylinder(bearing608Big,depth=7);
+                            OPSCHole(bearing608Little);
+                    }
+                    if(item=="Bearing6810"){
+                            OPSCHole(OPSCBearing6810Outside,7,0);
+                            OPSCHole(OPSCBearing6810Little,100,50);
+                    }
                     
                     
                     
@@ -165,14 +174,6 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                                 circle(6.2/2);
                             }
                         }
-                    }
-                    if(item=="Bearing606"){
-                            OPSCHole(OPSCBearing606Big,6,0);
-                            OPSCHole(OPSCBearing606Little,100,50);
-                    }
-                    if(item=="Bearing6810"){
-                            OPSCHole(OPSCBearing6810Outside,7,0);
-                            OPSCHole(OPSCBearing6810Little,100,50);
                     }
                     
                   

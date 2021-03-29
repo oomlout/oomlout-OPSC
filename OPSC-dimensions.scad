@@ -25,9 +25,16 @@
     
 
     // Bearings
-    OPSCBearing606Big = s=="3DPR" ? 17.5/2 : 17/2;
-    OPSCBearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
+        //606
+    bearing606Big = s=="3DPR" ? 17.5/2 : 17/2;
+    bearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
+    bearing606Depth = 6;
 
+        //608
+    bearing608Big = s=="3DPR" ? 22.5/2 : 22/2;
+    bearing608Little = s=="3DPR" ? 19.5/2 : 19/2;
+    bearing608Depth = 7;
+    
     //6810 Bearing
     OPSCBearing6810Inside = s=="3DPR" ? (50/2-(0.15/2)) : 50/2;
     OPSCBearing6810Outside = s=="3DPR" ? 65/2-(0.2/2) : 65/2;
