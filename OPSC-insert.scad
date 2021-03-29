@@ -78,13 +78,13 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         }
                     }
                     //////////////////////  COUPLERS
-                    if(item=="CouplerFlangeM5"){
+                    if(item=="couplerFlangeM5"){
                         rotate([0,0,45]){
-                            OPSCInsert("M3Hole",0,8);
-                            OPSCInsert("M3Hole",0,-8);
-                            OPSCInsert("M3Hole",8,0);
-                            OPSCInsert("M3Hole",-8,0);
-                            OPSCInsert("M6Hole",0,0);
+                            OPSCInsert("holeM3",0,8);
+                            OPSCInsert("holeM3",0,-8);
+                            OPSCInsert("holeM3",8,0);
+                            OPSCInsert("holeM3",-8,0);
+                            OPSCInsert("holeM6",0,0);
                         }
                     }
                     //////////////////    BEARINGS
