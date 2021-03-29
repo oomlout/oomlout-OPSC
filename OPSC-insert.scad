@@ -29,6 +29,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         OPSCHoleRect(width=width,height=height);
                     }                                    
                     //////////////////    OPSC
+                    
+                    if(item=="plateOOBB"){
+                        OPSCInsert("cubeRounded",width=(width*15)-3,height=(height*15)-3,depth=depth);
+                    }
                     if(item=="OPSCHole"){
                         rad=OPSCHole;
                         OPSCHole(rad);
