@@ -73,25 +73,4 @@
     
     
     
-    // TABS
     
-    OPSCTabWidthTrue = 3;
-    OPSCTabWidth3D = 2.7;
-    OPSCTabWidthLaser = 3;
-    OPSCTabWidth = s=="3DPR" ? OPSCTabWidth3D : OPSCTabWidthTrue;
-    
-    OPSCTabWidthHoleTrue = 3;
-    OPSCTabWidthHole3D = 3.4;
-    OPSCTabWidthHoleLaser = 3;
-    OPSCTabWidthHole = s=="3DPR" ? OPSCTabWidthHole3D : OPSCTabWidthHoleTrue;
-    
-    OPSCTabHeightTrue = OPSCTabWidthTrue;
-    OPSCTabHeight3D = OPSCTabWidth3D;
-    OPSCTabHeightLaser = OPSCTabWidthLaser;
-    OPSCTabHeight = s=="3DPR" ? OPSCTabHeight3D : OPSCTabHeightTrue;
-    
-    OPSCTabHeightHoleTrue = OPSCTabWidthHoleTrue;
-    OPSCTabHeightHole3D = OPSCTabWidthHole3D;
-    OPSCTabHeightHoleLaser = OPSCTabWidthHoleLaser;
-    OPSCTabHeightHole = s=="3DPR" ? OPSCTabHeightHole3D : OPSCTabHeightHoleTrue;
-

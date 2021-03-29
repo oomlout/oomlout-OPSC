@@ -102,7 +102,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             OPSCHole(OPSCBearing6810Little,100,50);
                     }
                     
-                    
+                    //////////////////    NUTS                    
                     
                     if(item=="M3SocketHeadFullNut"){
                         OPSCInsert("M3SocketHeadFull",0,0,0,length=height);
@@ -116,55 +116,6 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         OPSCCountersink3DComplete(0,0,top,bot,height,height);
                     }
 
-                    if(item=="M3HoleFull"){
-                           rad=OPSCm3Hole;
-                           OPSCHole3D(rad);
-                    }
-                    if(item=="M2Hole"){
-                           height=50;    
-                           z=height-10;
-                           rad=OPSCm2Hole;
-                           OPSCHole(rad,height,z);
-
-                    }
-                    if(item=="M3HoleExtra"){    
-                           z=ooZ;
-                           rad=OPSCm3Hole;
-                           OPSCHole(rad,height,0);
-
-                    }
-                    if(item=="M3HoleScrewTop"){
-                           height=50;    
-                           z=height-10;
-                           rad=OPSCm3SocketHeadHole;
-                           OPSCHole(rad,height,z);
-
-                    }
-                    
-                    if(item=="M3Slot"){
-                           height=50;    
-                           z=height-10;
-                           rad=OPSCm3Hole;
-                           slotw = 6;
-                           holeRadius = OPSCm3Hole;
-                           //slot
-                        translate([0,0,-10]){
-                            linear_extrude(height){
-                                translate([-slotw/2+holeRadius,0,0]){
-                                    
-                                    translate([0,0,0]){
-                                        circle(holeRadius);
-                                    }
-                                    translate([slotw-holeRadius*2,0,0]){
-                                        circle(holeRadius);
-                                    }
-                                    translate([slotw/2-holeRadius,0,0]){
-                                        square([slotw-holeRadius*2,holeRadius*2],true);
-                                    }
-                                }
-                            }
-                        }
-                    }
                     if(item=="M3NutCaptive"){
                        OPSCPolygon3DComplete(6,0,0,OPSCNutM3Width/2,height,0);
                     }
