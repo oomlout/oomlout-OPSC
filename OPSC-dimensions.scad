@@ -23,6 +23,9 @@
     holeM8 = s=="3DPR" ? 8.6/2 : 8/2;
     holeM10 = s=="3DPR" ? 10.6/2 : 10/2;
     
+    //  FASTENERS
+    socketHeadM3 = s=="3DPR" ? 5.5/2 : 5.5/2+0.6;
+    socketHeadM3Depth = s=="3DPR" ? 3 : 3+0.8;
 
     // Bearings
         //606

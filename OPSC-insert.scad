@@ -65,21 +65,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                            OPSCHole(holeM10);
                     }
                     //////////////////      FASTENERS
-                    if(item=="M3SocketHeadTop"){ //Just the top
-                        depth=OPSCm3SocketHeadDepth;
-                        OPSCCylinder(rad=OPSCm3SocketHeadHole,depth=OPSCm3SocketHeadDepth);
-                    }
-                    if(item=="M3SocketHeadFull"){
-                        union(){
-                            OPSCInsert("M3SocketHeadTop",z=OPSCm3SocketHeadDepth);
-                            OPSCInsert("M3Hole");
-                        }
-                    }
-                    if(item=="M3SocketHead"){
-                        union(){
-                            OPSCInsert("M3SocketHeadTop",z=OPSCm3SocketHeadDepth);
-                            OPSCCylinder(rad=M3hole,height=length);
-                        }
+                    
+                    if(item=="socketHeadM3"){
+                        oi("holeM3");
+                        oi("cylinder",rad=socketHeadM3,depth=socketHeadM3Depth,z=socketHeadM3Depth);
                     }
                     //////////////////////  COUPLERS
                     if(item=="couplerFlangeM5"){
