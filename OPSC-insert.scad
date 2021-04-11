@@ -21,6 +21,15 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     } 
                     if(item=="cubeRounded"){
                         OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
+                    } 
+                    if(item=="oobbBase"){
+                        OPSCCubeRounded(x=width*15/2,y=height*15/2,width=(width*15)-3,height=(height*15)-3,depth=depth,rad=rad);
+                    } 
+                    if(item=="oobbHole"){
+                        OPSCInsert("hole",rad=holeM6,x=((width-1)*15)+15/2,y=((height-1)*15)+15/2);
+                    } 
+                    if(item=="oobbHoleClearance"){
+                        OPSCInsert("hole",rad=12/2,x=((width-1)*15)+15/2,y=((height-1)*15)+15/2);
                     }                    
                     if(item=="hole"){
                         OPSCHole(rad);
