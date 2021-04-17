@@ -33,7 +33,8 @@ module OPSCCubeRounded(width,height,depth,rad=5,x=0,y=0,z=0){
         linear_extrude(depth){
             if(rad==0){
                 offset(r=5){
-                    square([width-rad*2,height-rad*2],true);
+                    rad2=5;
+                    square([width-rad2*2,height-rad2*2],true);
                 }
             }else{                
                 offset(r=rad){
