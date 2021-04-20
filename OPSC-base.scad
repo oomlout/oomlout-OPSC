@@ -201,6 +201,12 @@ module OPSCCylinder(rad,depth,x=0,y=0,z=0){
     }
 }
 
+module OPSCSphere(rad,x=0,y=0,z=0){
+    translate([x,y,z-depth]){
+        sphere(rad);
+    }
+}
+
 module OPSCCube(width,height,depth,x=0,y=0,z=0){
     translate([x,y,z-depth]){
         linear_extrude(depth){

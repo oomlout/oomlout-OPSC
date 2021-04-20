@@ -15,6 +15,9 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     //////////////////    PRIMATIVES
                     if(item=="cylinder"){
                         OPSCCylinder(rad=rad,depth=depth);
+                    }
+                    if(item=="sphere"){
+                        OPSCSphere(rad=rad);
                     } 
                     if(item=="cube"){
                         OPSCCube(width=width,height=height,depth=depth);
