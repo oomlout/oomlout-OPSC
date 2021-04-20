@@ -76,6 +76,9 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     if(item=="holeM10"){
                            OPSCHole(holeM10);
                     }
+                    if(item=="holeM12"){
+                           OPSCHole(12/2);
+                    }
                     //////////////////      FASTENERS
                     
                     if(item=="socketHeadM3"){
