@@ -58,27 +58,27 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         }
                     }
                     //////////////////      HOLES
-                    if(item=="holeM3"){
-                           OPSCHole(holeM3);
-                    }
-                    if(item=="holeM4"){
-                           OPSCHole(holeM4);
-                    }
-                    if(item=="holeM5"){
-                           OPSCHole(holeM5);
-                    }
-                    if(item=="holeM6"){
-                           OPSCHole(holeM6);
-                    }
-                    if(item=="holeM8"){
-                           OPSCHole(holeM8);
-                    }
-                    if(item=="holeM10"){
-                           OPSCHole(holeM10);
-                    }
-                    if(item=="holeM12"){
-                           OPSCHole(12/2);
-                    }
+                    if(item=="holeM1"){OPSCHole(holeM1);}
+                    if(item=="holeM2"){OPSCHole(holeM2);}
+                    if(item=="holeM3"){OPSCHole(holeM3);}
+                    if(item=="holeM4"){OPSCHole(holeM4);}
+                    if(item=="holeM5"){OPSCHole(holeM5);}
+                    if(item=="holeM6"){OPSCHole(holeM6);}
+                    if(item=="holeM7"){OPSCHole(holeM7);}
+                    if(item=="holeM8"){OPSCHole(holeM8);}
+                    if(item=="holeM9"){OPSCHole(holeM9);}
+                    if(item=="holeM10"){OPSCHole(holeM10);}
+                    if(item=="holeM11"){OPSCHole(holeM11);}
+                    if(item=="holeM12"){OPSCHole(holeM12);}
+                    if(item=="holeM13"){OPSCHole(holeM13);}
+                    if(item=="holeM14"){OPSCHole(holeM14);}
+                    if(item=="holeM15"){OPSCHole(holeM15);}
+                    if(item=="holeM16"){OPSCHole(holeM16);}
+                    if(item=="holeM17"){OPSCHole(holeM17);}
+                    if(item=="holeM18"){OPSCHole(holeM18);}
+                    if(item=="holeM19"){OPSCHole(holeM19);}
+                    if(item=="holeM20"){OPSCHole(holeM20);}
+                    
                     //////////////////      FASTENERS
                     
                     if(item=="socketHeadM3"){
