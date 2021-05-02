@@ -2,9 +2,9 @@
  include <OPSC-dimensions.scad>;
  include <OPSC-insert.scad>;
 
-shift=100;
 
-module OPSCbuild(){
+
+module OPSCbuild(shift=100){
     if(i==0){
         if(o=="LAZE"){
             translate([shift*0,0,0]){
