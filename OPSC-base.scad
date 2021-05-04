@@ -233,3 +233,19 @@ module OPSCCubeRounded(width,height,depth,rad=5,x=0,y=0,z=0){
         }
     }
 }
+
+module OPSCPolygon(sides=6,x=0,y=0,rad,depth,z=0){    
+   translate([x,y,z-depth]){
+       linear_extrude(depth){
+           Polygon(N=sides,R=rad,h=0);
+       }
+   }
+}
+
+module OPSCStar(points=5,x=0,y=0,radI,radO,depth,z=0){    
+   translate([x,y,z-depth]){
+       linear_extrude(depth){
+           Star(points=points,outer=radO,inner=radI);
+       }
+   }
+}

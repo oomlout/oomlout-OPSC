@@ -75,18 +75,16 @@
     OPSCNutM3Height = s=="3DPR" ? OPSCNutM3Height3D : OPSCNutM3HeightTrue;
     
         //M6
-    OPSCNutM6WidthTrue = 11.547;    //short side 10
-    OPSCNutM6Width3D = 12.7; //needs to be the long side (short side is   
-    OPSCNutM6Width = s=="3DPR" ? OPSCNutM6Width3D : OPSCNutM6WidthTrue;
+    OPSCNutM6Width = s=="3DPR" ? 12.7 : 11.547;
     
-    OPSCNutM6WidthShortTrue = 10;    
-    OPSCNutM6WidthShort3D = 11; //needs to be the long side    
-    OPSCNutM6WidthShort = s=="3DPR" ? OPSCNutM6WidthShort3D : OPSCNutM6WidthShortTrue;
+    OPSCNutM6WidthShort = s=="3DPR" ? 11 : 10;
     
+    OPSCNutM6Height = s=="3DPR" ? 5 : 5; //actually 4.85 extra for clearance
     
-    OPSCNutM6HeightTrue = 5;    //actually 4.85 extra for clearance
-    OPSCNutM6Height3D = 5;    
-    OPSCNutM6Height = s=="3DPR" ? OPSCNutM6Height3D : OPSCNutM6HeightTrue;
+    //Tripod
+    OSPCNutTripodWidth = s=="3DPR" ? 14 : 12.8;
+    
+    OSPCNutTripodHeight = s=="3DPR" ? 5.2 : 5.2
     
     
     
