@@ -5,7 +5,7 @@
 
 
 module OPSCbuild(shift=100){
-    if(i==0){
+    if(i==11){
         if(o=="LAZE"){
             translate([shift*0,0,0]){
                 projection(){
