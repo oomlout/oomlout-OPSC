@@ -4,15 +4,18 @@
 //#########          INSERT ROUTINES
 
 
-module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=0,rad=0,color="gray",alpha=1){
-    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha);
+module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true){
+    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes);
 }
 
-module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=0,rad=0,color="gray",alpha=1){
+module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true){
     color(color,alpha){
         translate([x,y,z]){
                 rotate([rotX,rotY,rotZ]){
                     //////////////////    PRIMATIVES
+                    if(item=="oobb"){
+                        OPSCoobbBase(OOwidth,OOheight,holes=holes,depth=depth,color=color);
+                    }
                     if(item=="cylinder"){
                         OPSCCylinder(rad=rad,depth=depth);
                     }

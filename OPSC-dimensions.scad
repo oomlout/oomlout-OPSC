@@ -12,10 +12,14 @@
     //Not yet implemented
     OPSCfirstLayerLipOffset = 0.35;
     OPSCfirstLayerLipDepth = 0.2;
+    
+    
+    OOBBspacing = 15;
 
     // HOLES
     OPSCHole = s=="3DPR" ? 6.5/2 : 6/2;
 
+    
     
     holeM1 = s=="3DPR" ? 1.2/2 : 1/2;
     holeM2 = s=="3DPR" ? 2.3/2 : 2/2;

@@ -249,3 +249,38 @@ module OPSCStar(points=5,x=0,y=0,radI,radO,depth,z=0){
        }
    }
 }
+
+module OPSCoobbBase(OOwidth,OOheight,depth=3,holes=true,color="gray"){
+    
+    cornerRad = 5;
+    wid = OOBBspacing * OOwidth - 3;
+    hei = OOBBspacing * OOheight - 3;
+    x = wid/2 - cornerRad;
+    y = hei/2 - cornerRad;
+    difference(){
+        color(color){
+            hull(){    
+                oi("cylinder",depth=depth,rad=cornerRad,x=x,y=y,color=color); 
+                oi("cylinder",depth=depth,rad=cornerRad,x=-x,y=y,color=color); 
+                oi("cylinder",depth=depth,rad=cornerRad,x=x,y=-y,color=color); 
+                oi("cylinder",depth=depth,rad=cornerRad,x=-x,y=-y,color=color); 
+            }
+        }
+        
+        if(holes){
+            for(width = [1:OOwidth]){
+                for(height = [1:OOheight]){
+                    OPSCoobbHole(OOwidth,OOheight,width,height);
+                }
+            }   
+        }
+    }
+    
+    
+}
+
+module OPSCoobbHole(OOwidth,OOheight,OOx,OOy){
+    x = -OOBBspacing/2 + -(OOwidth * OOBBspacing / 2) + OOx * OOBBspacing;
+    y = -OOBBspacing/2 + -(OOheight * OOBBspacing / 2) + OOy * OOBBspacing;
+    oi("holeM6",x,y);
+}
