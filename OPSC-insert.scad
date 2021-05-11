@@ -4,18 +4,16 @@
 //#########          INSERT ROUTINES
 
 
-module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true){
-    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes);
+module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true,negative=true){
+    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
 }
 
-module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true){
+module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=1,OOheight=1,holes=true,negative=true){
     color(color,alpha){
         translate([x,y,z]){
                 rotate([rotX,rotY,rotZ]){
                     //////////////////    PRIMATIVES
-                    if(item=="oobb"){
-                        OPSCoobbBase(OOwidth,OOheight,holes=holes,depth=depth,color=color);
-                    }
+                    
                     if(item=="cylinder"){
                         OPSCCylinder(rad=rad,depth=depth);
                     }
@@ -43,7 +41,31 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     if(item=="holeRect"){
                         OPSCHoleRect(width=width,height=height);
                     }                                    
-                    //////////////////    OPSC
+                    //////////////////    OOBB
+                    if(item=="oobb"){
+                        OPSCoobbBase(OOwidth,OOheight,holes=holes,depth=depth,color=color);
+                    }
+                    if(item=="oobbSlot"){
+                        oi("cube",width=3,height=6,depth=100,z=50);
+                    }
+                    if(item=="oobbBoltHole" || item=="oobbBoltSocket" ){
+                        oi("holeM6");
+                        oi("oobbSlot",x=0,y=15);
+                        oi("oobbSlot",x=0,y=-15);
+                    }
+                    if(item=="oobbBoltPlug"){
+                        echo(negative);
+                        if(negative){
+                            dep = 10;
+                            //bolt hole
+                            oi("cube",x=1.5,y=0,width=13,height=6,depth=depth);
+                            //nut hole
+                            oi("cube",x=5,y=0,width=6,height=10,depth=depth);                                
+                        }else{
+                            oi("cube",x=0,y=15,width=3,height=6,depth=depth);
+                            oi("cube",x=0,y=-15,width=3,height=6,depth=depth);                           
+                        }
+                    }
                     
                     if(item=="plateOOBB"){
                         OPSCInsert("cubeRounded",width=(width*15)-3,height=(height*15)-3,depth=depth);
