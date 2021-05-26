@@ -112,7 +112,13 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="holeM18"){OPSCHole(holeM18);}
                     else if(item=="holeM19"){OPSCHole(holeM19);}
                     else if(item=="holeM20"){OPSCHole(holeM20);}
-                    
+                    else if(item=="holeArray"){
+                        for(r=[1:height]){
+                            for(c=[1:width]){
+                                oi("hole",rad=rad,x=-(width*ex)/2+c*ex-ex/2,y=-(height*ex)/2+r*ex-ex/2, color=color);
+                            }
+                        }
+                    }
                     //////////////////      FASTENERS
                     
                     else if(item=="socketHeadM3"){
