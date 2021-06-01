@@ -234,6 +234,30 @@ module OPSCCubeRounded(width,height,depth,rad=5,x=0,y=0,z=0){
     }
 }
 
+module OPSCTriangle(width,height,depth,ex="R"){
+    if(ex == "L"){
+        mirror([1,0,0]){
+            translate([-width/2,-height/2,-depth]){
+                points=[[0,0],[width,0],[0,height]];
+                linear_extrude(depth){
+                    polygon(points);
+                }
+            }
+        }
+    }else{
+        mirror([0,0,0]){
+            translate([-width/2,-height/2,-depth]){
+                points=[[0,0],[width,0],[0,height]];
+                linear_extrude(depth){
+                    polygon(points);
+                }
+            }
+        }
+        
+    }
+    
+}
+
 module OPSCPolygon(sides=6,x=0,y=0,rad,depth,z=0){    
    translate([x,y,z-depth]){
        linear_extrude(depth){
