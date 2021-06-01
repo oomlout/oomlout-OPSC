@@ -65,17 +65,19 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         echo(negative);
                         if(negative){
                             dep = 10;
-                            if(rotZ==-90){
+                           
+                            //if(rotZ==-90){
                                 //bolt hole
                                 oi("cube",x=1.5+6,y=0,width=13,height=6,depth=depth);
                                 //nut hole
                                 oi("cube",x=5+6,y=0,width=6,height=10,depth=depth);                                
-                            }else{
-                                //bolt hole
-                                oi("cube",x=1.5,y=0,width=13,height=6,depth=depth);
-                                //nut hole
-                                oi("cube",x=5,y=0,width=6,height=10,depth=depth);                                
-                            }
+                            //}//else{
+                            //
+                            //    //bolt hole
+                            //    oi("cube",x=1.5,y=0,width=13,height=6,depth=depth);
+                            //    //nut hole
+                            //    oi("cube",x=5,y=0,width=6,height=10,depth=depth);                                
+                            //}
                         }else{
                             oi("cube",x=0,y=15,width=3,height=6,depth=depth);
                             oi("cube",x=0,y=-15,width=3,height=6,depth=depth);                           
