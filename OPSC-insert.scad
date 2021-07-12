@@ -105,6 +105,8 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }
                     //////////////////      HOLES
                     else if(item=="holeM1"){OPSCHole(holeM1);}
+                    else if(item=="holeM12D"){OPSCHole(holeM12D);}
+                    else if(item=="holeM16D"){OPSCHole(holeM16D);}
                     else if(item=="holeM2"){OPSCHole(holeM2);}
                     else if(item=="holeM3"){OPSCHole(holeM3);}
                     else if(item=="holeM4"){OPSCHole(holeM4);}
@@ -136,6 +138,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="socketHeadM3"){
                         oi("holeM3");
                         oi("cylinder",rad=socketHeadM3,depth=socketHeadM3Depth,z=socketHeadM3Depth);
+                    }else if(item=="countersunkM3"){
+                        translate([0,0,-countersunkM3Depth]){
+                            cylinder(h=countersunkM3Depth,r1=holeM3,r2=countersunkM3Top);
+                        }
                     }
                     //////////////////////  COUPLERS
                     else if(item=="couplerFlangeM5"){
