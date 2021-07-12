@@ -13,4 +13,30 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     else if(item == "hexIDHole" || item=="pocketMagnifierHole"){
         oi("cube",width=80,height=43,depth=100,z=50);
     }
+    else if(item == "hexIDN20" || item=="n20Motor"){
+        //motor
+        oi("cube",width=12+2,height=10+2,depth=30,z=0);
+        //shaft
+        oi("cylinder",rad=5/2,depth=10,z=10);
+        //screw holes
+        oi("cylinder",rad=holeM16D,x=4.5,z=10,depth=10);
+        oi("cylinder",rad=holeM16D,x=-4.5,z=10,depth=10);
+        
+    }
+    else if(item == "hexIDGearMotor1" || item=="gearMotor1"){
+        //motor
+        oi("cube",x=-21.5,width=65,height=22.5,depth=21,z=0);
+        oi("cube",x=13.5,width=5,height=6,depth=3,z=-11);
+        //shaft (7 diameter)
+        oi("cylinder",rad=15/2,depth=33,z=6);
+        oi("holeM3",x=13.5,y=0);
+        oi("holeM3",x=-20,y=9);
+        oi("holeM3",x=-20,y=-9);
+        if(extra != 0){
+            oi("countersunkM3",x=13.5,y=0,z=ex);
+            oi("countersunkM3",x=-20,y=9,z=ex);
+            oi("countersunkM3",x=-20,y=-9,z=ex);
+        }
+        //shaft
+    }
 }
