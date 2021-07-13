@@ -29,6 +29,7 @@
     holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
     holeM5 = s=="3DPR" ? 5.4/2 : 5/2;
     holeM6 = s=="3DPR" ? 6.5/2 : 6/2;
+    holeM7 = s=="3DPR" ? 7.5/2 : 7/2;
     holeM8 = s=="3DPR" ? 8.6/2 : 8/2;
     holeM9 = s=="3DPR" ? 9.6/2 : 9/2;
     holeM10 = s=="3DPR" ? 10.6/2 : 10/2;
