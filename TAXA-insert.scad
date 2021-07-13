@@ -25,14 +25,14 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     }
     else if(item == "hexIDGearMotor1" || item=="gearMotor1"){
         //motor
-        oi("cube",x=-21.5,width=65,height=22.5,depth=21,z=0);
-        oi("cube",x=13.5,width=5,height=6,depth=3,z=-11);
+        oi("cube",x=-21.5,width=65+rad,height=22.5+rad,depth=21,z=0);
+        oi("cube",x=13.5,width=5+rad,height=6+rad,depth=3+rad,z=-11+rad/2);
         //shaft (7 diameter)
         oi("cylinder",rad=15/2,depth=33,z=6);
         oi("holeM3",x=13.5,y=0);
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
-        if(extra != 0){
+        if(ex != 0){
             oi("countersunkM3",x=13.5,y=0,z=ex);
             oi("countersunkM3",x=-20,y=9,z=ex);
             oi("countersunkM3",x=-20,y=-9,z=ex);
