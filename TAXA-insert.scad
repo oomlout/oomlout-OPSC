@@ -30,6 +30,7 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cube",x=13.5,width=5+rad,height=6+rad,depth=3+rad,z=-11+rad/2);
         //shaft (7 diameter)
         oi("cylinder",rad=15/2,depth=33,z=6);
+        oi("cylinder",x=-11.25,rad=5/2,depth=33,z=3);
         oi("holeM3",x=13.5,y=0);
         oi("holeM3",x=-20,y=9);
         oi("holeM3",x=-20,y=-9);
@@ -51,14 +52,30 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         
     }
     else if(item == "ooebWIMOT"){
-        dep=2.6;
-        ext=0.1;
-        union(){
-            oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
-            oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
-            oi("cube",x=15,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
-            oi("cube",x=33.5,y=0,width=6.46+ext,height=3.08+ext,depth=dep);
-        }
+        //ex = extra padding around
+        //rad = extra height
+        if(ex == 0 && rad == 0){
+            dep=2.54+ 0.06;
+            ext=0.1;
+            union(){
+                oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
+                oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
+                oi("cube",x=15,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
+                oi("cube",x=33.5,y=0,width=6.46+ext,height=3.08+ext,depth=dep);
+            }
+        }else{
+            dep=2.54+ rad;
+            ext=ex;
+            echo("TEST");
+            union(){
+                oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
+                oi("cube",x=15.135,y=0,width=30.27+ext,height=5.08+ext,depth=dep);
+                oi("cube",x=15,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
+                oi("cube",x=33.5,y=0,width=6.46+ext,height=3.08+ext,depth=dep);
+            
         
+            }
+        
+        }
     }
 }
