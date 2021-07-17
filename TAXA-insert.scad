@@ -29,7 +29,8 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cube",x=-21.5,width=65+rad,height=22.5+rad,depth=21,z=0);
         oi("cube",x=13.5,width=5+rad,height=6+rad,depth=3+rad,z=-11+rad/2);
         //shaft (7 diameter)
-        oi("cylinder",rad=15/2,depth=33,z=6);
+        //shaft clearance
+        oi("cylinder",rad=20/2,depth=33,z=6);
         oi("cylinder",x=-11.25,rad=5/2,depth=33,z=3);
         oi("holeM3",x=13.5,y=0);
         oi("holeM3",x=-20,y=9);
@@ -40,6 +41,29 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
             oi("countersunkM3",x=-20,y=-9,z=ex);
         }
         //shaft
+    }
+    else if(item == "hexIDGearMotor1Shaft" || item=="gearMotor1Shaft"){
+        //shaft
+        union(){
+            //shaft
+            difference(){
+                oi("cylinder",rad=7/2,depth=100,z=50);
+                oi("cube",width=1.1,height=7,x=2.95,depth=6);
+                oi("cube",width=1.1,height=7,x=-2.95,,depth=100,z=50);
+            }
+            //cutout square
+            oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);
+            //clearance hoop
+            difference(){
+                //big cyulinder
+                oi("cylinder",rad=17/2,depth=100,z=50);
+                //little cylinder
+                oi("cylinder",rad=13/2,depth=100,z=50);
+                oi("cube",width=7,height=20,depth=100,z=50,x=-5.9);
+            }
+        }
+        
+        
     }
     else if(item == "hexIDbuttonM7" || item=="buttonM7"){
         oi("cylinder",rad=holeM7,depth=11,z=11);
