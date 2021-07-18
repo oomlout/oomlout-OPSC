@@ -31,14 +31,19 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         //shaft (7 diameter)
         //shaft clearance
         oi("cylinder",rad=20/2,depth=33,z=6);
+        //extra clearance hole a few shifted to get it smoother
         oi("cylinder",x=-11.25,rad=5/2,depth=33,z=3);
-        oi("holeM3",x=13.5,y=0);
-        oi("holeM3",x=-20,y=9);
-        oi("holeM3",x=-20,y=-9);
+        oi("cylinder",x=-11.25+1,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11.25+2,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11.25+3,rad=5/2,depth=33,z=3);
+        oi("cylinder",x=-11.25+4,rad=5/2,depth=33,z=3);
+        oi("holeM25D",x=13.5,y=0);
+        oi("holeM25D",x=-20,y=9);
+        oi("holeM25D",x=-20,y=-9);
         if(ex != 0){
-            oi("countersunkM3",x=13.5,y=0,z=ex);
-            oi("countersunkM3",x=-20,y=9,z=ex);
-            oi("countersunkM3",x=-20,y=-9,z=ex);
+            oi("countersunkM25D",x=13.5,y=0,z=ex);
+            oi("countersunkM25D",x=-20,y=9,z=ex);
+            oi("countersunkM25D",x=-20,y=-9,z=ex);
         }
         //shaft
     }
@@ -47,9 +52,9 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         union(){
             //shaft
             difference(){
-                oi("cylinder",rad=7/2,depth=100,z=50);
-                oi("cube",width=1.1,height=7,x=2.95,depth=6);
-                oi("cube",width=1.1,height=7,x=-2.95,,depth=100,z=50);
+                oi("cylinder",rad=(7+rad)/2,depth=100,z=50);
+                oi("cube",width=2.1,height=7,x=3.45+rad,depth=100,z=50);
+                oi("cube",width=2.1,height=7,x=-3.45-rad,depth=100,z=50);
             }
             //cutout square
             oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);

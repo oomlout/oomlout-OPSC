@@ -108,6 +108,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="holeM12D"){OPSCHole(holeM12D);}
                     else if(item=="holeM16D"){OPSCHole(holeM16D);}
                     else if(item=="holeM2"){OPSCHole(holeM2);}
+                    else if(item=="holeM25D"){OPSCHole(holeM25D);}
                     else if(item=="holeM3"){OPSCHole(holeM3);}
                     else if(item=="holeM4"){OPSCHole(holeM4);}
                     else if(item=="holeM5"){OPSCHole(holeM5);}
@@ -141,6 +142,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }else if(item=="countersunkM3"){
                         translate([0,0,-countersunkM3Depth]){
                             cylinder(h=countersunkM3Depth,r1=holeM3,r2=countersunkM3Top);
+                        }
+                    }else if(item=="countersunkM25D"){
+                        translate([0,0,-countersunkM25DDepth]){
+                            cylinder(h=countersunkM25DDepth,r1=holeM25D,r2=countersunkM25DTop);
                         }
                     }
                     //////////////////////  COUPLERS

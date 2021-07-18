@@ -25,6 +25,7 @@
     holeM12D = s=="3DPR" ? 1.4/2 : 1.2/2;
     holeM16D = s=="3DPR" ? 1.8/2 : 1.6/2;
     holeM2 = s=="3DPR" ? 2.3/2 : 2/2;
+    holeM25D = s=="3DPR" ? 2.8/2 : 2.5/2;
     holeM3 = s=="3DPR" ? 3.4/2 : 3/2;
     holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
     holeM5 = s=="3DPR" ? 5.4/2 : 5/2;
@@ -47,7 +48,11 @@
     //  FASTENERS
     socketHeadM3 = s=="3DPR" ? 5.5/2 + 0.6 : 5.5/2;
     socketHeadM3Depth = s=="3DPR" ? 3 + 0.8 : 3;
-
+        
+        //countersunk
+    countersunkM25DTop = s=="3DPR" ? 4.6/2+0.6 : 4.6/2;    
+    countersunkM25DDepth = s=="3DPR" ? 1.5+0.2 : 1.5;    
+    
     countersunkM3Top = s=="3DPR" ? 5.5/2+0.6 : 5.5/2;    
     countersunkM3Depth = s=="3DPR" ? 1.7+0.2 : 1.7;    
 
