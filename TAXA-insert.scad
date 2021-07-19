@@ -50,11 +50,12 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
     else if(item == "hexIDGearMotor1Shaft" || item=="gearMotor1Shaft"){
         //shaft
         union(){
+            default = 0;
             //shaft
             difference(){
-                oi("cylinder",rad=(7+rad)/2,depth=100,z=50);
-                oi("cube",width=2.1,height=7,x=3.45+rad,depth=100,z=50);
-                oi("cube",width=2.1,height=7,x=-3.45-rad,depth=100,z=50);
+                oi("cylinder",rad=(7+rad+default)/2,depth=100,z=50);
+                oi("cube",width=2.1,height=7,x=3.45+rad+default,depth=100,z=50);
+                oi("cube",width=2.1,height=7,x=-3.45-rad-default,depth=100,z=50);
             }
             //cutout square
             oi("cube",width=7.5,height=1.5,x=3.75,depth=100,z=50);
@@ -63,7 +64,9 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 //big cyulinder
                 oi("cylinder",rad=17/2,depth=100,z=50);
                 //little cylinder
-                oi("cylinder",rad=13/2,depth=100,z=50);
+                //oi("cylinder",rad=13/2,depth=100,z=50);
+                //trying smaller
+                oi("cylinder",rad=11/2,depth=100,z=50);
                 oi("cube",width=7,height=20,depth=100,z=50,x=-5.9);
             }
         }
