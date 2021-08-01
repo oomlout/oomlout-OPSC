@@ -83,11 +83,12 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("holeM2",x=-22.5);
         
     }
-    else if(item == "ooebWIMOT"){
+    else if(item == "ooebWIMOT" ||  item == "WI-M2"){
         //ex = extra padding around
         //rad = extra height
         if(ex == 0 && rad == 0){
-            dep=2.54+ 0.06;
+            //dep=2.54+ 0.06;
+            dep=3;
             ext=0.1;
             union(){
                 oi("cube",x=11.27,y=0,width=22.54+ext,height=5.08+ext,depth=dep);
@@ -102,10 +103,33 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                 oi("cube",x=11.27,y=0,width=22.54+ext,height=5.08+ext,depth=dep);
                 oi("cube",x=7.27,y=0,width=2.54+ext,height=10.16+ext,depth=dep);
                 oi("cube",x=25.77,y=0,width=6.46+ext,height=3.08+ext,depth=dep);
-            
-        
             }
-        
         }
+    }else if(item == "WI-SM"){
+        dep=3;
+        ext=0.1;
+        union(){
+            oi("cube",x=11.27,y=0,width=22.54+ext,height=gv("I014")+ext,depth=dep); // main square
+            oi("cube",x=7.27,y=0,width=gv("I011")+ext,height=gv("I016")+ext,depth=dep); // header holder 
+            oi("cube",x=25.77,y=0,width=6.46+ext,height=gv("I014")-2+ext,depth=dep); //wire gap
+                }
+            }else if(item == "WI-HV"){
+        dep=3;
+        ext=0.1;
+        union(){
+            oi("cube",x=15.54,y=0,width=14+ext,height=gv("I012")+ext,depth=dep); // main square inside
+            oi("cube",x=3,y=-gv("I011")/2,width=6+ext,height=gv("I013")+ext,depth=dep); // main square outside
+            oi("cube",x=7.27,y=-gv("I011")/2,width=gv("I011")+ext,height=gv("I015")+ext,depth=dep); // header holder 
+            oi("cube",x=25.77,y=0,width=6.46+ext,height=gv("I012")-2+ext,depth=dep); //wire gap
+                }
+            }else if(item == "WI-BA"){
+        dep=3;
+        ext=0.1;
+        union(){
+            oi("cube",x=15.54,y=0,width=14+ext,height=gv("I013")+ext,depth=dep); // main square inside
+            oi("cube",x=3,y=-gv("I011")/2,width=6+ext,height=gv("I014")+ext,depth=dep); // main square outside
+            oi("cube",x=7.27,y=-gv("I011")/2,width=gv("I011")+ext,height=gv("I016")+ext,depth=dep); // header holder 
+            oi("cube",x=25.77,y=0,width=6.46+ext,height=gv("I013")-2+ext,depth=dep); //wire gap
+                }
+            }
     }
-}

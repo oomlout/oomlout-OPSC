@@ -99,8 +99,25 @@
     //Tripod
     OSPCNutTripodWidth = s=="3DPR" ? 14 : 12.8;
     
-    OSPCNutTripodHeight = s=="3DPR" ? 5.2 : 5.2
+    OSPCNutTripodHeight = s=="3DPR" ? 5.2 : 5.2;
     
+ 
+function gv(name) =
+    //OOBB spacings
+    name=="OS"      ? OS :
+    name=="OS1"     ? OS  :
+    name=="OS2"     ? OS * 2 :
+    //0.1" spacings
+    name=="I011"     ? 2.54 * 1 :
+    name=="I012"     ? 2.54 * 2 :
+    name=="I013"     ? 2.54 * 3 :
+    name=="I014"     ? 2.54 * 4 :
+    name=="I015"     ? 2.54 * 5 :
+    name=="I016"     ? 2.54 * 6 :
+    name=="I017"     ? 2.54 * 7 :
+    name=="I018"     ? 2.54 * 8 :
+    name=="I019"     ? 2.54 * 9 :
     
-    
+    "ERROR";
+
     
