@@ -77,9 +77,7 @@
 
     // NUTS
         //M3
-    OPSCNutM3WidthTrue = 6.351;    //5.5mm short side
-    OPSCNutM3Width3D = 7.028; //needs to be the long side 
-    OPSCNutM3Width = s=="3DPR" ? OPSCNutM3Width3D : OPSCNutM3WidthTrue;
+    OPSCNutM3Width = s=="3DPR" ? 7.028 : 6.351;
     
     OPSCNutM3WidthShortSideTrue = 5.5;    //5.5mm short side
     OPSCNutM3WidthShortSide3D = 6; //needs to be the long side // //6mm short side    
@@ -117,6 +115,17 @@ function gv(name) =
     name=="I017"     ? 2.54 * 7 :
     name=="I018"     ? 2.54 * 8 :
     name=="I019"     ? 2.54 * 9 :
+    
+    //GMOT-01
+    name=="GMOT-01-WIDTH"      ? 65 :
+    name=="GMOT-01-HEIGHT"     ? 22.5 :
+    name=="GMOT-01-DEPTH"      ? 21 :
+    name=="GMOT-01-HOLE1X"     ? 13.5 :
+    name=="GMOT-01-HOLE1Y"     ? 0 :
+    name=="GMOT-01-HOLE2X"     ? -20 :
+    name=="GMOT-01-HOLE2Y"     ? 9 :
+    name=="GMOT-01-HOLE3X"     ? -20 :
+    name=="GMOT-01-HOLE3Y"     ? -9 :
     
     "ERROR";
 

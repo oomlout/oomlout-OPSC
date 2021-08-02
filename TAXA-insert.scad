@@ -24,7 +24,7 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         oi("cylinder",rad=holeM16D,x=-4.5,z=10,depth=10);
         
     }
-    else if(item == "hexIDGearMotor1" || item=="gearMotor1"){
+    else if(item == "hexIDGearMotor1" || item=="gearMotor1" || item=="GMOT-01"){
         //motor
         oi("cube",x=-21.5,width=65+rad,height=22.5+rad,depth=21,z=0);
         oi("cube",x=13.5,width=5+rad,height=6+rad,depth=3+rad,z=-11+rad/2);
