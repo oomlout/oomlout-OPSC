@@ -105,6 +105,14 @@ function gv(name) =
     name=="OS"      ? OS :
     name=="OS1"     ? OS  :
     name=="OS2"     ? OS * 2 :
+    name=="OS3"     ? OS * 3 :
+    name=="OS4"     ? OS * 4 :
+    name=="OS5"     ? OS * 5 :
+    name=="OS6"     ? OS * 6 :
+    name=="OS7"     ? OS * 7 :
+    name=="OS8"     ? OS * 8 :
+    name=="OS9"     ? OS * 9 :
+    name=="OS10"     ? OS * 10 :
     //0.1" spacings
     name=="I011"     ? 2.54 * 1 :
     name=="I012"     ? 2.54 * 2 :
