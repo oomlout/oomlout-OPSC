@@ -73,6 +73,36 @@ module TAXAInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         
         
     }
+    else if(item == "hexIDN20Shaft" || item=="n20Shaft"){
+        //shaft
+        union(){
+            default = 0;
+            //shaft
+            shaftOD = 3;
+            //flat offset
+            flatOffset= 0.5;
+            //cutout
+            cutout = 1;
+            difference(){
+                oi("cylinder",rad=(shaftOD+rad+default)/2,depth=100,z=50);
+                oi("cube",width=2,height=3,x=shaftOD/2+1-flatOffset,depth=100,z=50);                
+            }
+            //cutout square
+            oi("cube",width=shaftOD+3,height=cutout,x=2,depth=100,z=50);
+            //clearance hoop
+            difference(){
+                //big cylinder
+                oi("cylinder",rad=(shaftOD+7)/2,depth=100,z=50);
+                //little cylinder
+                //oi("cylinder",rad=13/2,depth=100,z=50);
+                //trying smaller
+                oi("cylinder",rad=(shaftOD+5)/2,depth=100,z=50);
+                oi("cube",width=7,height=20,depth=100,z=50,x=-5.9);
+            }
+        }
+        
+        
+    }
     else if(item == "hexIDbuttonM7" || item=="buttonM7"){
         oi("cylinder",rad=holeM7,depth=11,z=11);
         oi("cylinder",rad=holeM10+rad,depth=18,z=0);
