@@ -27,6 +27,14 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="triangle"){
                         OPSCTriangle(width=width,height=height,depth=depth,ex=ex);
                         }  
+                    else if(item=="text"){
+                        ht=0.15;
+                        translate([0,0,-ht]){
+                            linear_extrude(height=ht){
+                                text(ex,size=height,font="DejaVu Sans Mono",halign="center",valign="center");
+                            }
+                        }                        
+                    }
                     else if(item=="cubeClearance"){
                         OPSCCube(width=width,height=height,depth=depth);    
                         oi("hole",x=width/2,y=height/2,depth=depth,rad=rad);
