@@ -134,6 +134,10 @@ function gv(name) =
     name=="GMOT-01-HOLE2Y"     ? 9 :
     name=="GMOT-01-HOLE3X"     ? -20 :
     name=="GMOT-01-HOLE3Y"     ? -9 :
+    //NUT M3
+    name=="NUTM3WIDTH"     ? OPSCNutM3Width :
+    name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
+    name=="GMOT-01-HOLE3Y"     ? -9 :
     
     "ERROR";
 
