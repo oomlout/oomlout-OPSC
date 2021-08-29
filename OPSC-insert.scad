@@ -3,6 +3,7 @@
 //#########################################################################################
 //#########          INSERT ROUTINES
  include <TAXA-insert.scad>;
+ include <OOBB-AAA-insert.scad>;
 
 
 module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,color="gray",alpha=1,OOwidth=0,OOheight=0,holes=true,negative=true){
@@ -211,11 +212,12 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }
                     else {
                         TAXAInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
-                    }
+                        OOBBInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
                     
                   
                   
-              }
-        }
-    }   
+                }
+            }
+        }   
+    }
 }
