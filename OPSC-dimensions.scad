@@ -127,7 +127,7 @@ function gv(name) =
     //GMOT-01
     name=="GMOT-01-WIDTH"      ? 65 :
     name=="GMOT-01-HEIGHT"     ? 22.5 :
-    name=="GMOT-01-DEPTH"      ? 21 :
+    name=="GMOT-01-DEPTH"      ? 19 :
     name=="GMOT-01-HOLE1X"     ? 13.5 :
     name=="GMOT-01-HOLE1Y"     ? 0 :
     name=="GMOT-01-HOLE2X"     ? -20 :
