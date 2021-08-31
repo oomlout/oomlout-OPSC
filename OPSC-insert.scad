@@ -7,7 +7,7 @@
 
 
 module oi(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,rad2=0,color="gray",alpha=1,OOwidth=0,OOheight=0,holes=true,negative=true){
-    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
+    OPSCInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,rad2,color,alpha,OOwidth,OOheight,holes,negative);
 }
 
 module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,height=0,depth=100,rad=0,rad2=0,color="gray",alpha=1,OOwidth=0,OOheight=0,holes=true,negative=true){
@@ -23,7 +23,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         OPSCSphere(rad=rad);
                     } 
                     else if(item=="cone"){
-                        OPSCCone(rad=rad,rad2);
+                        OPSCCone(rad=rad,rad2=rad2,depth=depth);
                     } 
                     else if(item=="cube" || item=="rect" || item=="rectangle"){
                         OPSCCube(width=width,height=height,depth=depth);

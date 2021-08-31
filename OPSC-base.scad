@@ -201,6 +201,13 @@ module OPSCCylinder(rad,depth,x=0,y=0,z=0){
     }
 }
 
+module OPSCCone(rad,rad2,depth,x=0,y=0,z=0){
+    echo("CONE");
+    translate([x,y,z-depth/2]){
+        cylinder(h=depth,r1=rad,r2=rad2,center=true);
+    }
+}
+
 module OPSCSphere(rad,x=0,y=0,z=0){
     translate([x,y,z]){
         sphere(rad);
