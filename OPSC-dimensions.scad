@@ -123,17 +123,6 @@ function gv(name) =
     name=="I017"     ? 2.54 * 7 :
     name=="I018"     ? 2.54 * 8 :
     name=="I019"     ? 2.54 * 9 :
-    
-    //GMOT-01
-    name=="GMOT-01-WIDTH"      ? 65 :
-    name=="GMOT-01-HEIGHT"     ? 22.5 :
-    name=="GMOT-01-DEPTH"      ? 19 + 1.5 :
-    name=="GMOT-01-HOLE1X"     ? 13.5 :
-    name=="GMOT-01-HOLE1Y"     ? 0 :
-    name=="GMOT-01-HOLE2X"     ? -20 :
-    name=="GMOT-01-HOLE2Y"     ? 9 :
-    name=="GMOT-01-HOLE3X"     ? -20 :
-    name=="GMOT-01-HOLE3Y"     ? -9 :
     //NUT M3
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
