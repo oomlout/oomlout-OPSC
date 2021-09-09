@@ -183,9 +183,13 @@ module OPSCbuild(shift=100){
 }
 
  
-module OPSCHole(rad){
-    depth = 500;
-    OPSCCylinder(rad,depth,z=depth/2);
+module OPSCHole(rad,depth=0){
+    if(depth==0){
+        d = 500;
+        OPSCCylinder(rad,d,z=d/2);
+    }else{
+        OPSCCylinder(rad,depth,z=depth/2);
+    }
 }
 
 module OPSCHoleRect(width,height){

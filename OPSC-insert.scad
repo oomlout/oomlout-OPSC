@@ -116,30 +116,29 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         
                     }
                     //////////////////      HOLES
-                    else if(item=="holeM1"){OPSCHole(holeM1);}
-                    else if(item=="holeM12D"){OPSCHole(holeM12D);}
-                    else if(item=="holeM16D"){OPSCHole(holeM16D);}
-                    else if(item=="holeM2"){OPSCHole(holeM2);}
-                    else if(item=="holeM25D"){OPSCHole(holeM25D);}
-                    else if(item=="holeM3"){OPSCHole(holeM3);}
-                    else if(item=="holeM4"){OPSCHole(holeM4);}
-                    else if(item=="holeM5"){OPSCHole(holeM5);}
-                    else if(item=="holeM6"){OPSCHole(holeM6);}
-                    else if(item=="holeM7"){OPSCHole(holeM7);}
-                    else if(item=="holeM8"){OPSCHole(holeM8);}
-                    else if(item=="holeM9"){OPSCHole(holeM9);}
-                    else if(item=="holeM10"){OPSCHole(holeM10);}
-                    else if(item=="holeM11"){OPSCHole(holeM11);}
-                    else if(item=="holeM12"){OPSCHole(holeM12);}
-                    else if(item=="holeM13"){OPSCHole(holeM13);}
-                    else if(item=="holeM14"){OPSCHole(holeM14);}
-                    else if(item=="holeM15"){OPSCHole(holeM15);}
-                    else if(item=="holeM16"){OPSCHole(holeM16);}
-                    else if(item=="holeM17"){OPSCHole(holeM17);}
-                    else if(item=="holeM18"){OPSCHole(holeM18);}
-                    else if(item=="holeM19"){OPSCHole(holeM19);}
-                    else if(item=="holeM20"){OPSCHole(holeM20);}
-                    else if(item=="holeArray"){
+                    else if(item=="holeM1"){OPSCHole(holeM1,depth);}
+                    else if(item=="holeM12D"){OPSCHole(holeM12D,depth);}
+                    else if(item=="holeM16D"){OPSCHole(holeM16D,depth);}
+                    else if(item=="holeM2"){OPSCHole(holeM2,depth);}
+                    else if(item=="holeM25D"){OPSCHole(holeM25D,depth);}
+                    else if(item=="holeM3"){OPSCHole(holeM3,depth);}
+                    else if(item=="holeM4"){OPSCHole(holeM4,depth);}
+                    else if(item=="holeM5"){OPSCHole(holeM5,depth);}
+                    else if(item=="holeM6"){OPSCHole(holeM6,depth);}
+                    else if(item=="holeM7"){OPSCHole(holeM7,depth);}
+                    else if(item=="holeM8"){OPSCHole(holeM8,depth);}
+                    else if(item=="holeM9"){OPSCHole(holeM9,depth);}
+                    else if(item=="holeM10"){OPSCHole(holeM10,depth);}
+                    else if(item=="holeM11"){OPSCHole(holeM11,depth);}
+                    else if(item=="holeM12"){OPSCHole(holeM12,depth);}
+                    else if(item=="holeM13"){OPSCHole(holeM13,depth);}
+                    else if(item=="holeM14"){OPSCHole(holeM14,depth);}
+                    else if(item=="holeM15"){OPSCHole(holeM15,depth);}
+                    else if(item=="holeM16"){OPSCHole(holeM16,depth);}
+                    else if(item=="holeM17"){OPSCHole(holeM17,depth);}
+                    else if(item=="holeM18"){OPSCHole(holeM18,depth);}
+                    else if(item=="holeM19"){OPSCHole(holeM19,depth);}
+                    else if(item=="holeM20"){OPSCHole(holeM20,depth);}                else if(item=="holeArray"){
                         for(r=[1:height]){
                             for(c=[1:width]){
                                 oi("hole",rad=rad,x=-(width*ex)/2+c*ex-ex/2,y=-(height*ex)/2+r*ex-ex/2, color=color);
