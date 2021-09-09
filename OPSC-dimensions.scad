@@ -71,9 +71,19 @@
     OPSCBearing6810Inside = s=="3DPR" ? (50/2-(0.15/2)) : 50/2;
     OPSCBearing6810Outside = s=="3DPR" ? 65/2-(0.2/2) : 65/2;
     OPSCBearing6810OutsideHold = s=="3DPR" ? 65/2+(0.6/2) : 65/2;
-
     OPSCBearing6810Little = 65/2-(3/2);
-    OPSCBearing6810LittleInside =50/2+(3/2);
+    OPSCBearing6810InsideLittle =50/2+(3/2);
+
+
+    //6803 Bearing
+//6803 Bearing
+    bearing6803Inside = s=="3DPR" ? 16.8/2 : 17/2;
+    bearing6803Outside = s=="3DPR" ? (26-0.25)/2 : 26;
+    bearing6803OutsideLittle = 21/2;
+    bearing6803InsideLittle = (17+1.5)/2;    
+    bearing6803Depth = 5;    
+
+
 
     // NUTS
         //M3
@@ -127,6 +137,12 @@ function gv(name) =
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
     name=="GMOT-01-HOLE3Y"     ? -9 :
+    //BEARINGS
+    name=="BEARING-6803-INSIDE"     ? bearing6803Inside :
+    name=="BEARING-6803-OUTSIDE"     ? bearing6803Outside :
+    name=="BEARING-6803-DEPTH"     ? bearing6803Depth :
+    name=="BEARING-6803-OUTSIDELITTLE"     ? bearing6803OutsideLittle :
+    name=="BEARING-6803-INSIDELITTLE"     ? bearing6803OutsideLittle :
     
     "ERROR";
 

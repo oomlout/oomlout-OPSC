@@ -184,6 +184,17 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             OPSCHole(OPSCBearing6810Outside,7,0);
                             OPSCHole(OPSCBearing6810Little,100,50);
                     }
+                    else if(item=="Bearing6810"){
+                            OPSCHole(OPSCBearing6810Outside,7,0);
+                            OPSCHole(OPSCBearing6810Little,100,50);
+                    }
+                    else if(item=="Bearing6803"){
+                            oi("cylinder",rad=gv("BEARING-6803-OUTSIDE"),depth=gv("BEARING-6803-OUTSIDELITTLE"));
+                        //add hole if EX doesn't equal zero
+                        if(ex != 0){
+                            oi("cylinder",rad=gv("BEARING-6803-OUTSIDE"),depth=100,z=50);
+                        }
+                    }
                     
                     //////////////////    NUTS                    
                     
