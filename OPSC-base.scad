@@ -192,6 +192,15 @@ module OPSCHole(rad,depth=0){
     }
 }
 
+module OPSCRoundedClearance(rad,stretch=20){
+    eche("ROUNDED CORNER",rad);
+    hull(){
+        oi("hole",rad=rad,x=0,y=0);
+        oi("hole",rad=rad,x=0,y=stretch);
+        oi("hole",rad=rad,x=stretch,y=0);
+        oi("hole",rad=rad,x=stretch,y=stretch);
+    }
+}
 module OPSCHoleRect(width,height){
     depth = 500;
     OPSCCube(width,height,depth=depth,z=depth/2);

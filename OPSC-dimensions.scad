@@ -135,7 +135,9 @@ function gv(name) =
     name=="I019"     ? 2.54 * 9 :
     //NUT M3
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
+    name=="NUT-M3-WIDTH"     ? OPSCNutM3Width :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
+    name=="NUT-M3-HEIGHT"     ? OPSCNutM3Height :
     name=="GMOT-01-HOLE3Y"     ? -9 :
     //BEARINGS
     name=="BEARING-6803-INSIDE"     ? bearing6803Inside :

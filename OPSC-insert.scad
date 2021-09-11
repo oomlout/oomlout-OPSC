@@ -116,6 +116,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         
                     }
                     //////////////////      HOLES
+                    else if(item=="hole"){OPSCHole(rad,depth);}
                     else if(item=="holeM1"){OPSCHole(holeM1,depth);}
                     else if(item=="holeM12D"){OPSCHole(holeM12D,depth);}
                     else if(item=="holeM16D"){OPSCHole(holeM16D,depth);}
@@ -138,13 +139,19 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="holeM17"){OPSCHole(holeM17,depth);}
                     else if(item=="holeM18"){OPSCHole(holeM18,depth);}
                     else if(item=="holeM19"){OPSCHole(holeM19,depth);}
-                    else if(item=="holeM20"){OPSCHole(holeM20,depth);}                else if(item=="holeArray"){
+                    else if(item=="holeM20"){OPSCHole(holeM20,depth);}                
+                    else if(item=="holeArray"){
                         for(r=[1:height]){
                             for(c=[1:width]){
                                 oi("hole",rad=rad,x=-(width*ex)/2+c*ex-ex/2,y=-(height*ex)/2+r*ex-ex/2, color=color);
                             }
                         }
                     }
+                    ///////////////////     ROUNDEDCLEARANCE
+                    else if(item=="roundedClearanceM12"){ OPSCRoundedClearance(rad=holeM12);}
+                    
+                    
+                    
                     //////////////////      FASTENERS
                     
                     else if(item=="socketHeadM3"){
