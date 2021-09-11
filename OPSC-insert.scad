@@ -153,10 +153,12 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     
                     
                     //////////////////      FASTENERS
-                    
-                    else if(item=="socketHeadM3"){
-                        oi("holeM3");
-                        oi("cylinder",rad=socketHeadM3,depth=socketHeadM3Depth,z=socketHeadM3Depth);
+                        //capscrew
+                    else if(item=="socketHeadM3"){ //DEPRECATED
+                        oi("capscrewM3");
+                    }else if(item=="capscrewM3"){
+                        oi("cylinder",rad=gv("CAPSCREW-M3-TOP"),depth=gv("CAPSCREW-M3-DEPTH"),z=0);
+                        //countersunk
                     }else if(item=="countersunkM3"){
                         translate([0,0,-countersunkM3Depth]){
                             cylinder(h=countersunkM3Depth,r1=holeM3,r2=countersunkM3Top);
