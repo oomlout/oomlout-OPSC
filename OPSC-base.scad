@@ -193,7 +193,6 @@ module OPSCHole(rad,depth=0){
 }
 
 module OPSCRoundedClearance(rad,stretch=20){
-    eche("ROUNDED CORNER",rad);
     hull(){
         oi("hole",rad=rad,x=0,y=0);
         oi("hole",rad=rad,x=0,y=stretch);
