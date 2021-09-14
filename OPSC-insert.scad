@@ -48,15 +48,6 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     } 
                     else if(item=="cubeRounded" || item=="rectRounded" || item=="rectangleRounded"){
                         OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
-                    } 
-                    else if(item=="oobbBase"){
-                        OPSCCubeRounded(width=(width*15)-3,height=(height*15)-3,depth=depth,rad=rad);
-                    } 
-                    else if(item=="oobbHole"){
-                        OPSCInsert("hole",rad=holeM6,x=-(OOwidth*15/2)+((width-1)*15)+15/2,y=-(OOheight*15/2)+((height-1)*15)+15/2);
-                    } 
-                    else if(item=="oobbHoleClearance"){
-                        OPSCInsert("hole",rad=12/2,x=((width-1)*15)+15/2,y=((height-1)*15)+15/2);
                     }                    
                     else if(item=="hole"){
                         OPSCHole(rad);
