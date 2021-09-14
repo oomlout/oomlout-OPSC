@@ -225,6 +225,19 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             OPSCPolygon(6,0,0,OPSCNutM3Width/2,depth,0);
                         }
                     }
+                    else if(item=="nutM3Slot"){
+                        if(depth == 0){
+                            hull(){
+                                OPSCPolygon(6,0,0,OPSCNutM3Width/2,2,0);
+                                
+                            }
+                        }else{
+                            #hull(){
+                                OPSCPolygon(6,0,0,OPSCNutM3Width/2,depth,0);
+                                oi("cube",y=5,width=OPSCNutM3Width,height=OPSCNutM3Width,depth=depth);
+                            }
+                        }
+                    }
                     else if(item=="M3NutClearance"){  ///clearnce for an m3 nut
                         translate([0,0,-height]){
                             linear_extrude(height){
