@@ -231,7 +231,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                                 
                             }
                         }else{
-                            #hull(){
+                            hull(){
                                 OPSCPolygon(6,0,0,OPSCNutM3Width/2,depth,0);
                                 oi("cube",y=5,width=OPSCNutM3Width,height=OPSCNutM3Width,depth=depth);
                             }

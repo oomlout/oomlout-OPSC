@@ -50,7 +50,7 @@
     socketHeadM3 = s=="3DPR" ? 5.5/2 + 0.6 : 5.5/2;
     capscrewM3Top = socketHeadM3;
     
-    socketHeadM3Depth = s=="3DPR" ? 3 + 0.8 : 3;
+    socketHeadM3Depth = s=="3DPR" ? 3 + 0.4 : 3;
     capscrewM3Depth = socketHeadM3Depth;
     
         
