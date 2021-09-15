@@ -117,6 +117,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="holeM4"){OPSCHole(holeM4,depth);}
                     else if(item=="holeM5"){OPSCHole(holeM5,depth);}
                     else if(item=="holeM6"){OPSCHole(holeM6,depth);}
+                    else if(item=="holeM6Minus"){OPSCHole(holeM6Minus,depth);}
                     else if(item=="holeM7"){OPSCHole(holeM7,depth);}
                     else if(item=="holeM8"){OPSCHole(holeM8,depth);}
                     else if(item=="holeM9"){OPSCHole(holeM9,depth);}
@@ -209,6 +210,13 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         OPSCCountersink3DComplete(0,0,top,bot,height,height);
                     }
 
+                    else if(item=="nutM6"){
+                        if(depth == 0){
+                            OPSCPolygon(sides=6,rad=gv("NUT-M6-WIDTH")/2,depth=gv("NUT-M6-HEIGHT"));
+                        }else{
+                            OPSCPolygon(sides=6,rad=gv("NUT-M6-WIDTH")/2,depth=depth);
+                        }
+                    }
                     else if(item=="M3NutCaptive" || item=="nutM3"){
                         if(depth == 0){
                             OPSCPolygon(6,0,0,OPSCNutM3Width/2,2,0);

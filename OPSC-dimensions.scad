@@ -30,6 +30,7 @@
     holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
     holeM5 = s=="3DPR" ? 5.4/2 : 5/2;
     holeM6 = s=="3DPR" ? 6.5/2 : 6/2;
+    holeM6Minus = s=="3DPR" ? 5.8/2 : 5.9/2;
     holeM7 = s=="3DPR" ? 7.5/2 : 7/2;
     holeM8 = s=="3DPR" ? 8.6/2 : 8/2;
     holeM9 = s=="3DPR" ? 9.6/2 : 9/2;
@@ -142,12 +143,18 @@ function gv(name) =
     name=="CAPSCREW-M3-TOP"     ? capscrewM3Top :
     name=="CAPSCREW-M3-DEPTH"     ? capscrewM3Depth :
     
-    //NUT M3
+    //NUT 
+        //M3
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
     name=="NUT-M3-WIDTH"     ? OPSCNutM3Width :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
     name=="NUT-M3-HEIGHT"     ? OPSCNutM3Height :
-    name=="GMOT-01-HOLE3Y"     ? -9 :
+        //M6
+    name=="NUTM6WIDTH"     ? OPSCNutM6Width :
+    name=="NUT-M6-WIDTH"     ? OPSCNutM6Width :
+    name=="NUTM6HEIGHT"     ? OPSCNutM6Height :
+    name=="NUT-M6-HEIGHT"     ? OPSCNutM6Height :
+    
     //BEARINGS
     name=="BEARING-6803-INSIDE"     ? bearing6803Inside :
     name=="BEARING-6803-OUTSIDE"     ? bearing6803Outside :
