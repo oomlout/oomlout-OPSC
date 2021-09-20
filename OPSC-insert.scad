@@ -48,9 +48,6 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     } 
                     else if(item=="cubeRounded" || item=="rectRounded" || item=="rectangleRounded"){
                         OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
-                    }                    
-                    else if(item=="hole"){
-                        OPSCHole(rad);
                     }
                     else if(item=="holeRect"){
                         OPSCHoleRect(width=width,height=height);
@@ -68,7 +65,6 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         oi("oobbSlot",x=0,y=-15);
                     }
                     else if(item=="oobbBoltPlug"){
-                        echo(negative);
                         if(negative){
                             dep = 10;
                            
@@ -107,31 +103,31 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         
                     }
                     //////////////////      HOLES
-                    else if(item=="hole"){OPSCHole(rad,depth);}
-                    else if(item=="holeM1"){OPSCHole(holeM1,depth);}
-                    else if(item=="holeM12D"){OPSCHole(holeM12D,depth);}
-                    else if(item=="holeM16D"){OPSCHole(holeM16D,depth);}
-                    else if(item=="holeM2"){OPSCHole(holeM2,depth);}
-                    else if(item=="holeM25D"){OPSCHole(holeM25D,depth);}
-                    else if(item=="holeM3"){OPSCHole(holeM3,depth);}
-                    else if(item=="holeM4"){OPSCHole(holeM4,depth);}
-                    else if(item=="holeM5"){OPSCHole(holeM5,depth);}
-                    else if(item=="holeM6"){OPSCHole(holeM6,depth);}
-                    else if(item=="holeM6Minus"){OPSCHole(holeM6Minus,depth);}
-                    else if(item=="holeM7"){OPSCHole(holeM7,depth);}
-                    else if(item=="holeM8"){OPSCHole(holeM8,depth);}
-                    else if(item=="holeM9"){OPSCHole(holeM9,depth);}
-                    else if(item=="holeM10"){OPSCHole(holeM10,depth);}
-                    else if(item=="holeM11"){OPSCHole(holeM11,depth);}
-                    else if(item=="holeM12"){OPSCHole(holeM12,depth);}
-                    else if(item=="holeM13"){OPSCHole(holeM13,depth);}
-                    else if(item=="holeM14"){OPSCHole(holeM14,depth);}
-                    else if(item=="holeM15"){OPSCHole(holeM15,depth);}
-                    else if(item=="holeM16"){OPSCHole(holeM16,depth);}
-                    else if(item=="holeM17"){OPSCHole(holeM17,depth);}
-                    else if(item=="holeM18"){OPSCHole(holeM18,depth);}
-                    else if(item=="holeM19"){OPSCHole(holeM19,depth);}
-                    else if(item=="holeM20"){OPSCHole(holeM20,depth);}                
+                    else if(item=="hole"){OPSCHole(rad,depth=depth);}
+                    else if(item=="holeM1"){OPSCHole(holeM1,depth=depth);}
+                    else if(item=="holeM12D"){OPSCHole(holeM12D,depth=depth);}
+                    else if(item=="holeM16D"){OPSCHole(holeM16D,depth=depth);}
+                    else if(item=="holeM2"){OPSCHole(holeM2,depth=depth);}
+                    else if(item=="holeM25D"){OPSCHole(holeM25D,depth=depth);}
+                    else if(item=="holeM3"){OPSCHole(holeM3,depth=depth);}
+                    else if(item=="holeM4"){OPSCHole(holeM4,depth=depth);}
+                    else if(item=="holeM5"){OPSCHole(holeM5,depth=depth);}
+                    else if(item=="holeM6"){OPSCHole(holeM6,depth=depth);}
+                    else if(item=="holeM6Minus"){OPSCHole(holeM6Minus,depth=depth);}
+                    else if(item=="holeM7"){OPSCHole(holeM7,depth=depth);}
+                    else if(item=="holeM8"){OPSCHole(holeM8,depth=depth);}
+                    else if(item=="holeM9"){OPSCHole(holeM9,depth=depth);}
+                    else if(item=="holeM10"){OPSCHole(holeM10,depth=depth);}
+                    else if(item=="holeM11"){OPSCHole(holeM11,depth=depth);}
+                    else if(item=="holeM12"){OPSCHole(holeM12,depth=depth);}
+                    else if(item=="holeM13"){OPSCHole(holeM13,depth=depth);}
+                    else if(item=="holeM14"){OPSCHole(holeM14,depth=depth);}
+                    else if(item=="holeM15"){OPSCHole(holeM15,depth=depth);}
+                    else if(item=="holeM16"){OPSCHole(holeM16,depth=depth);}
+                    else if(item=="holeM17"){OPSCHole(holeM17,depth=depth);}
+                    else if(item=="holeM18"){OPSCHole(holeM18,depth=depth);}
+                    else if(item=="holeM19"){OPSCHole(holeM19,depth=depth);}
+                    else if(item=="holeM20"){OPSCHole(holeM20,depth=depth);}                
                     else if(item=="holeArray"){
                         for(r=[1:height]){
                             for(c=[1:width]){
@@ -140,7 +136,9 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         }
                     }
                     ///////////////////     ROUNDEDCLEARANCE
-                    else if(item=="roundedClearanceM12"){ OPSCRoundedClearance(rad=holeM12);}
+                    else if(item=="roundedClearanceM12"){ 
+                        OPSCRoundedClearance(rad=holeM12,depth=depth);}
+                        
                     
                     
                     
@@ -173,8 +171,11 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     //////////////////    BEARINGS
                     
                     else if(item=="bearing606"){
-                            OPSCCylinder(bearing606Big,depth=6);
-                            OPSCCylinder(bearing606Little);
+                            oi("cylinder",rad=gv("BEARING-606-OUTSIDE"),depth=gv("BEARING-606-DEPTH"));
+                        //add hole if EX doesn't equal zero
+                        if(ex != 0){
+                            oi("cylinder",rad=gv("BEARING-606-OUTSIDE"),depth=100,z=50);
+                        }
                     }
                     else if(item=="bearing608"){
                             OPSCCylinder(bearing608Big,depth=7);

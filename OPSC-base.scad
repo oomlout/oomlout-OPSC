@@ -184,20 +184,20 @@ module OPSCbuild(shift=100){
 
  
 module OPSCHole(rad,depth=0){
-    if(depth==0){
+    if(depth==0 || depth==undef || depth==100){
         d = 500;
-        OPSCCylinder(rad,d,z=d/2);
+        OPSCCylinder(rad=rad,depth=d,z=d/2);
     }else{
-        OPSCCylinder(rad,depth,z=depth/2);
+        OPSCCylinder(rad=rad,depth=depth,z=0);
     }
 }
 
-module OPSCRoundedClearance(rad,stretch=20){
+module OPSCRoundedClearance(rad,stretch=20,depth=0){
     hull(){
-        oi("hole",rad=rad,x=0,y=0);
-        oi("hole",rad=rad,x=0,y=stretch);
-        oi("hole",rad=rad,x=stretch,y=0);
-        oi("hole",rad=rad,x=stretch,y=stretch);
+        oi("hole",rad=rad,x=0,y=0,depth=depth);
+        oi("hole",rad=rad,x=0,y=stretch,depth=depth);
+        oi("hole",rad=rad,x=stretch,y=0,depth=depth);
+        oi("hole",rad=rad,x=stretch,y=stretch,depth=depth);
     }
 }
 module OPSCHoleRect(width,height){

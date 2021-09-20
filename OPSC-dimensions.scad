@@ -65,8 +65,13 @@
         //606
     bearing606Big = s=="3DPR" ? 17.5/2 : 17/2;
     bearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
-    bearing606Depth = 6;
-
+    
+    bearing606Inside = s=="3DPR" ? 5.8/2 : 6/2;
+    bearing606Outside = s=="3DPR" ? (17+0.05)/2 : 17/2;
+    bearing606OutsideLittle = 15/2;
+    bearing606InsideLittle = (6+1.5)/2;    
+    bearing606Depth = 6;    
+    
         //608
     bearing608Big = s=="3DPR" ? 22.5/2 : 22/2;
     bearing608Little = s=="3DPR" ? 19.5/2 : 19/2;
@@ -143,25 +148,36 @@ function gv(name) =
     name=="CAPSCREW-M3-TOP"     ? capscrewM3Top :
     name=="CAPSCREW-M3-DEPTH"     ? capscrewM3Depth :
     
+    name=="COUNTERSUNK-M3-TOP"     ? countersunkM3Top :
+    name=="COUNTERSUNK-M3-DEPTH"     ? countersunkM3Depth :
+    
     //NUT 
         //M3
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
     name=="NUT-M3-WIDTH"     ? OPSCNutM3Width :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
     name=="NUT-M3-HEIGHT"     ? OPSCNutM3Height :
+    name=="NUT-M3-DEPTH"     ? OPSCNutM3Height :
         //M6
     name=="NUTM6WIDTH"     ? OPSCNutM6Width :
     name=="NUT-M6-WIDTH"     ? OPSCNutM6Width :
     name=="NUTM6HEIGHT"     ? OPSCNutM6Height :
     name=="NUT-M6-HEIGHT"     ? OPSCNutM6Height :
+    name=="NUT-M6-DEPTH"     ? OPSCNutM6Height :
     
     //BEARINGS
+        //6803
     name=="BEARING-6803-INSIDE"     ? bearing6803Inside :
     name=="BEARING-6803-OUTSIDE"     ? bearing6803Outside :
     name=="BEARING-6803-DEPTH"     ? bearing6803Depth :
     name=="BEARING-6803-OUTSIDELITTLE"     ? bearing6803OutsideLittle :
     name=="BEARING-6803-INSIDELITTLE"     ? bearing6803OutsideLittle :
-    
+        //606
+    name=="BEARING-606-INSIDE"     ? bearing606Inside :
+    name=="BEARING-606-OUTSIDE"     ? bearing606Outside :
+    name=="BEARING-606-DEPTH"     ? bearing606Depth :
+    name=="BEARING-606-OUTSIDELITTLE"     ? bearing606OutsideLittle :
+    name=="BEARING-606-INSIDELITTLE"     ? bearing606OutsideLittle :    
     "ERROR";
 
     
