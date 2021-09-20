@@ -192,7 +192,7 @@ module OPSCHole(rad,depth=0){
     }
 }
 
-module OPSCRoundedClearance(rad,stretch=20,depth=0){
+module OPSCRoundedClearance(rad,stretch=15,depth=0){
     hull(){
         oi("hole",rad=rad,x=0,y=0,depth=depth);
         oi("hole",rad=rad,x=0,y=stretch,depth=depth);
@@ -200,6 +200,15 @@ module OPSCRoundedClearance(rad,stretch=20,depth=0){
         oi("hole",rad=rad,x=stretch,y=stretch,depth=depth);
     }
 }
+
+module OPSCSlot(rad,stretch=15,depth=0){
+    hull(){
+        oi("hole",rad=rad,x=0,y=0,depth=depth);
+        oi("hole",rad=rad,x=stretch,y=0,depth=depth);
+    }
+}
+
+
 module OPSCHoleRect(width,height){
     depth = 500;
     OPSCCube(width,height,depth=depth,z=depth/2);
