@@ -174,6 +174,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="bearing606"){
                             oi("cylinder",rad=gv("BEARING-606-OUTSIDE"),depth=gv("BEARING-606-DEPTH"));
                         //add hole if EX doesn't equal zero
+                            oi("cylinder",rad=gv("BEARING-606-OUTSIDELITTLE"),depth=100,z=50);
                         if(ex != 0){
                             oi("cylinder",rad=gv("BEARING-606-OUTSIDE"),depth=100,z=50);
                         }
@@ -193,6 +194,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     else if(item=="bearing6803"){
                             oi("cylinder",rad=gv("BEARING-6803-OUTSIDE"),depth=gv("BEARING-6803-DEPTH"));
                         //add hole if EX doesn't equal zero
+                            oi("cylinder",rad=gv("BEARING-6803-OUTSIDELITTLE"),depth=100,z=50);
                         if(ex != 0){
                             oi("cylinder",rad=gv("BEARING-6803-OUTSIDE"),depth=100,z=50);
                         }
@@ -221,21 +223,26 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }
                     else if(item=="M3NutCaptive" || item=="nutM3"){
                         if(depth == 0){
-                            OPSCPolygon(6,0,0,OPSCNutM3Width/2,2,0);
+                            OPSCPolygon(6,0,0,(OPSCNutM3Width/2)+rad,2,0);
                         }else{
-                            OPSCPolygon(6,0,0,OPSCNutM3Width/2,depth,0);
+                            OPSCPolygon(6,0,0,(OPSCNutM3Width/2)+rad,depth,0);
                         }
-                    }
-                    else if(item=="nutM3Slot"){
+                    }else if(item=="nutM3SideEscape"){
+                        oi("nutM3",depth=depth,rad=rad);
+                        difference(){
+                            oi("cube",height=gv("NUT-M3-WIDTHSHORTSHORT"),width=10,depth=depth,rotZ=30);
+                            oi("cube",height=100,x=-5,width=10,depth=depth,rotZ=30);
+                        }
+                    }else if(item=="nutM3Slot"){
                         if(depth == 0){
                             hull(){
-                                OPSCPolygon(6,0,0,OPSCNutM3Width/2,2,0);
+                                OPSCPolygon(6,0,0,gv("NUT-M3-WIDTHSHORT")/2,2,0);
                                 
                             }
                         }else{
                             hull(){
-                                OPSCPolygon(6,0,0,OPSCNutM3Width/2,depth,0);
-                                oi("cube",y=5,width=OPSCNutM3Width,height=OPSCNutM3Width,depth=depth);
+                                OPSCPolygon(6,0,0,gv("NUT-M3-WIDTHSHORT")/2,depth,0);
+                                oi("cube",y=5,width=6,height=gv("NUT-M3-WIDTHSHORT"),depth=depth);
                             }
                         }
                     }

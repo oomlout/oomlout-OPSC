@@ -59,7 +59,7 @@
     countersunkM25DDepth = s=="3DPR" ? 1.5+0.2 : 1.5;    
     
     countersunkM3Top = s=="3DPR" ? 5.5/2+0.6 : 5.5/2;    
-    countersunkM3Depth = s=="3DPR" ? 1.7+0.2 : 1.7;    
+    countersunkM3Depth = s=="3DPR" ? 1.7 : 1.7;    
 
     // Bearings
         //606
@@ -88,7 +88,7 @@
     //6803 Bearing
 //6803 Bearing
     bearing6803Inside = s=="3DPR" ? 16.8/2 : 17/2;
-    bearing6803Outside = s=="3DPR" ? (26-0.05)/2 : 26/2;
+    bearing6803Outside = s=="3DPR" ? (26+0.05)/2 : 26/2;
     bearing6803OutsideLittle = 21/2;
     bearing6803InsideLittle = (17+1.5)/2;    
     bearing6803Depth = 5;    
@@ -97,11 +97,11 @@
 
     // NUTS
         //M3
-    OPSCNutM3Width = s=="3DPR" ? 7.028 : 6.351;
+    OPSCNutM3Width = s=="3DPR" ? 6.351+0.3 : 6.351;
     
-    OPSCNutM3WidthShortSideTrue = 5.5;    //5.5mm short side
-    OPSCNutM3WidthShortSide3D = 6; //needs to be the long side // //6mm short side    
-    OPSCNutM3WidthShortSide = s=="3DPR" ? OPSCNutM3WidthShortSide3D : OPSCNutM3WidthShortSideTrue;
+    OPSCNutM3WidthShortSide = s=="3DPR" ? 6.1 : 5.5;
+    
+    OPSCNutM3WidthShortShortSide = s=="3DPR" ? 3.175 : 3.175;
     
     OPSCNutM3HeightTrue = 2.5;    //actually 4.85 extra for clearance
     OPSCNutM3Height3D = 2.5;    
@@ -155,6 +155,8 @@ function gv(name) =
         //M3
     name=="NUTM3WIDTH"     ? OPSCNutM3Width :
     name=="NUT-M3-WIDTH"     ? OPSCNutM3Width :
+    name=="NUT-M3-WIDTHSHORT"     ? OPSCNutM3WidthShortSide :
+    name=="NUT-M3-WIDTHSHORTSHORT"     ? OPSCNutM3WidthShortShortSide :
     name=="NUTM3HEIGHT"     ? OPSCNutM3Height :
     name=="NUT-M3-HEIGHT"     ? OPSCNutM3Height :
     name=="NUT-M3-DEPTH"     ? OPSCNutM3Height :
