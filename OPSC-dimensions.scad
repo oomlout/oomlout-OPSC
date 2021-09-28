@@ -67,7 +67,7 @@
     bearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
     
     bearing606Inside = s=="3DPR" ? 5.8/2 : 6/2;
-    bearing606Outside = s=="3DPR" ? (17+0.05)/2 : 17/2;
+    bearing606Outside = s=="3DPR" ? (17+0.15)/2 : 17/2;
     bearing606OutsideLittle = 15/2;
     bearing606InsideLittle = (6+1.5)/2;    
     bearing606Depth = 6;    
@@ -88,10 +88,10 @@
     //6803 Bearing
 //6803 Bearing
     bearing6803Inside = s=="3DPR" ? 16.8/2 : 17/2;
-    bearing6803Outside = s=="3DPR" ? (26+0.05)/2 : 26/2;
+    bearing6803Outside = s=="3DPR" ? (26+0.25)/2 : 26/2;
     bearing6803OutsideLittle = 21/2;
     bearing6803InsideLittle = (17+1.5)/2;    
-    bearing6803Depth = 5;    
+    bearing6803Depth = s=="3DPR" ? 5.2 : 5;    
 
 
 
