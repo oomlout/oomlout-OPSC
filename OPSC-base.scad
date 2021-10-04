@@ -105,7 +105,7 @@ module OPSCbuild(shift=100){
                     offset(-layerInset){
                         projection(){
                             intersection(){
-                                draw1();  
+                                draw2();  
                                 oi("cube",width=1000,height=1000,depth=layerHeight);
                             }
                         }
@@ -114,7 +114,7 @@ module OPSCbuild(shift=100){
             }
             //rest with firstlayer removed
                 difference(){
-                    draw1();  
+                    draw2();  
                     oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
                 }
             }            
@@ -127,8 +127,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw2();
             }
-        }else{  
-                draw2();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw2();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw2();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw2();
         }
     }
     if(i==3){
@@ -136,8 +159,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw3();
             }
-        }else{  
-                draw3();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw3();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw3();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw3();
         }
     }
     if(i==4){
@@ -145,8 +191,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw4();
             }
-        }else{  
-                draw4();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw4();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw4();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw4();
         }
     }
     if(i==5){
@@ -154,8 +223,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw5();
             }
-        }else{  
-                draw5();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw5();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw5();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw5();
         }
     }
     if(i==6){
@@ -163,8 +255,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw6();
             }
-        }else{  
-                draw6();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw6();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw6();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw6();
         }
     }
     if(i==7){
@@ -172,8 +287,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw7();
             }
-        }else{  
-                draw7();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw7();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw7();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw7();
         }
     }
     if(i==8){
@@ -181,8 +319,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw8();
             }
-        }else{  
-                draw8();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw8();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw8();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw8();
         }
     }
     if(i==9){
@@ -190,8 +351,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw9();
             }
-        }else{  
-                draw9();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw9();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw9();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw9();
         }
     }
     if(i==10){
@@ -199,8 +383,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw10();
             }
-        }else{  
-                draw10();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw10();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw10();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw10();
         }
     }
 }
