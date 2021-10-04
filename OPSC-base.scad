@@ -105,7 +105,7 @@ module OPSCbuild(shift=100){
                     offset(-layerInset){
                         projection(){
                             intersection(){
-                                draw2();  
+                                draw1();  
                                 oi("cube",width=1000,height=1000,depth=layerHeight);
                             }
                         }
@@ -114,7 +114,7 @@ module OPSCbuild(shift=100){
             }
             //rest with firstlayer removed
                 difference(){
-                    draw2();  
+                    draw1();  
                     oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
                 }
             }            

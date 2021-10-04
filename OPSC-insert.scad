@@ -150,13 +150,17 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }else if(item=="capscrewM3"){
                         oi("cylinder",rad=gv("CAPSCREW-M3-TOP"),depth=gv("CAPSCREW-M3-DEPTH"),z=0);
                         //countersunk
-                    }else if(item=="countersunkM3"){
+                    }else if(item=="countersunkM3" || item=="countersinkM3"){
                         translate([0,0,-countersunkM3Depth]){
                             cylinder(h=countersunkM3Depth,r1=holeM3,r2=countersunkM3Top);
                         }
-                    }else if(item=="countersunkM25D"){
+                    }else if(item=="countersunkM25D" || item=="countersinkM25D"){
                         translate([0,0,-countersunkM25DDepth]){
                             cylinder(h=countersunkM25DDepth,r1=holeM25D,r2=countersunkM25DTop);
+                        }
+                    }else if(item=="countersunkM35DWoodScrew" || item=="countersinkM35DWoodScrew"){
+                        translate([0,0,-gv("COUNTERSUNK-M35DWOODSCREW-DEPTH")]){
+                            cylinder(h=gv("COUNTERSUNK-M35DWOODSCREW-DEPTH"),r1=holeM35D,r2=gv("COUNTERSUNK-M35DWOODSCREW-TOP"));
                         }
                     }
                     //////////////////////  COUPLERS

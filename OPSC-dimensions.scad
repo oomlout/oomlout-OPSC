@@ -27,6 +27,7 @@
     holeM2 = s=="3DPR" ? 2.3/2 : 2/2;
     holeM25D = s=="3DPR" ? 2.8/2 : 2.5/2;
     holeM3 = s=="3DPR" ? 3.4/2 : 3/2;
+    holeM35D = s=="3DPR" ? 3.9/2 : 35/2;
     holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
     holeM5 = s=="3DPR" ? 5.4/2 : 5/2;
     holeM6 = s=="3DPR" ? 6.5/2 : 6/2;
@@ -60,6 +61,9 @@
     
     countersunkM3Top = s=="3DPR" ? 5.5/2+0.6 : 5.5/2;    
     countersunkM3Depth = s=="3DPR" ? 1.7 : 1.7;    
+
+    countersunkM35DWoodScrewTop = s=="3DPR" ? 7.7/2+0.6 : 7.7/2;    
+    countersunkM35DWoodScrewDepth = s=="3DPR" ? 4 : 4; 
 
     // Bearings
         //606
@@ -150,6 +154,10 @@ function gv(name) =
     
     name=="COUNTERSUNK-M3-TOP"     ? countersunkM3Top :
     name=="COUNTERSUNK-M3-DEPTH"     ? countersunkM3Depth :
+    
+    name=="COUNTERSUNK-M35DWOODSCREW-TOP"     ? countersunkM35DWoodScrewTop :
+    name=="COUNTERSUNK-M35DWOODSCREW-DEPTH"     ? countersunkM35DWoodScrewDepth :
+    
     
     //NUT 
         //M3
