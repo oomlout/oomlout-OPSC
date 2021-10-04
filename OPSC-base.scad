@@ -95,8 +95,31 @@ module OPSCbuild(shift=100){
             projection(){
                 draw1();
             }
-        }else{  
-                draw1();  
+        }else if(o=="3DPR"){ 
+            //inset first layer
+            layerHeight=0.4;
+            layerInset=0.35;
+           //firstLayer
+            translate([0,0,0]){
+                linear_extrude(layerHeight){
+                    offset(-layerInset){
+                        projection(){
+                            intersection(){
+                                draw1();  
+                                oi("cube",width=1000,height=1000,depth=layerHeight);
+                            }
+                        }
+                    }
+                }
+            }
+            //rest with firstlayer removed
+                difference(){
+                    draw1();  
+                    oi("cube",width=1000,height=1000,depth=layerHeight,z=layerHeight);
+                }
+            }            
+        else{
+            draw1();
         }
     }
     if(i==2){
