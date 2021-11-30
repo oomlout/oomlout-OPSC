@@ -257,6 +257,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                             }
                         }
                     }
+                    else if(item=="rivetM25D"){  ///clearnce for an m3 nut
+                        oi("holeM25D");
+                        oi("cylinder",rad=gv("RIVET-M25D-TOP")/2,z=10-1.5,depth=10);                        
+                    }
                     else {
                         TAXAInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
                         OOBBInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);

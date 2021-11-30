@@ -26,6 +26,7 @@
     holeM16D = s=="3DPR" ? 1.8/2 : 1.6/2;
     holeM2 = s=="3DPR" ? 2.3/2 : 2/2;
     holeM25D = s=="3DPR" ? 2.8/2 : 2.5/2;
+    holeM27D = s=="3DPR" ? 3.1/2 : 2.7/2;    
     holeM3 = s=="3DPR" ? 3.4/2 : 3/2;
     holeM35D = s=="3DPR" ? 3.9/2 : 35/2;
     holeM4 = s=="3DPR" ? 4.4/2 : 4/2;
@@ -123,6 +124,9 @@
     
     OSPCNutTripodHeight = s=="3DPR" ? 5.2 : 5.2;
     
+    
+    //Rivet
+    OPSCRivetM25DTop = s=="3DPR" ? 5.2 : 5;
  
 function gv(name) =
     //OOBB spacings
@@ -188,6 +192,13 @@ function gv(name) =
     name=="BEARING-606-DEPTH"     ? bearing606Depth :
     name=="BEARING-606-OUTSIDELITTLE"     ? bearing606OutsideLittle :
     name=="BEARING-606-INSIDELITTLE"     ? bearing606OutsideLittle :    
+    
+    //RIVET
+    name=="RIVET-M25D-TOP"     ? OPSCRivetM25DTop :    
+    
     "ERROR";
+    
+    
+    
 
     
