@@ -126,9 +126,9 @@
     
     
     //Rivet
-    OPSCRivetM2Top = s=="3DPR" ? 4.2 : 4;    
-    OPSCRivetM25DTop = s=="3DPR" ? 5.3 : 5;
-    OPSCRivetM3Top = s=="3DPR" ? 6.6 : 6.3;
+    OPSCRivetM2Top = s=="3DPR" ? 5.2 : 4;    
+    OPSCRivetM25DTop = s=="3DPR" ? 6.3 : 5;
+    OPSCRivetM3Top = s=="3DPR" ? 7.6 : 6.3;
  
 function gv(name) =
     //OOBB spacings
