@@ -126,7 +126,9 @@
     
     
     //Rivet
-    OPSCRivetM25DTop = s=="3DPR" ? 5.2 : 5;
+    OPSCRivetM2Top = s=="3DPR" ? 4.2 : 4;    
+    OPSCRivetM25DTop = s=="3DPR" ? 5.3 : 5;
+    OPSCRivetM3Top = s=="3DPR" ? 6.6 : 6.3;
  
 function gv(name) =
     //OOBB spacings
@@ -194,7 +196,9 @@ function gv(name) =
     name=="BEARING-606-INSIDELITTLE"     ? bearing606OutsideLittle :    
     
     //RIVET
+    name=="RIVET-M2-TOP"     ? OPSCRivetM2Top :    
     name=="RIVET-M25D-TOP"     ? OPSCRivetM25DTop :    
+    name=="RIVET-M3-TOP"     ? OPSCRivetM3Top :    
     
     "ERROR";
     
