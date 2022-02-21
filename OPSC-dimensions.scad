@@ -72,10 +72,10 @@
     bearing606Little = s=="3DPR" ? 14.5/2 : 14/2;
     
     bearing606Inside = s=="3DPR" ? 5.8/2 : 6/2;
-    bearing606Outside = s=="3DPR" ? (17+0.15)/2 : 17/2;
+    bearing606Outside = s=="3DPR" ? (17+0.25)/2 : 17/2;
     bearing606OutsideLittle = 15/2;
     bearing606InsideLittle = (6+1.5)/2;    
-    bearing606Depth = 6;    
+    bearing606Depth = s=="3DPR" ? 6.5 : 6;;    
     
         //608
     bearing608Big = s=="3DPR" ? 22.5/2 : 22/2;
@@ -102,7 +102,7 @@
 
     // NUTS
         //M3
-    OPSCNutM3Width = s=="3DPR" ? 6.351+0.3 : 6.351;
+    OPSCNutM3Width = s=="3DPR" ? 6.351+0.35 : 6.351;
     
     OPSCNutM3WidthShortSide = s=="3DPR" ? 6.1 : 5.5;
     
