@@ -482,7 +482,10 @@ module OPSCCubeRounded(width,height,depth,rad=5,x=0,y=0,z=0){
                 }
             }else{                
                 offset(r=rad){
-                    square([width-rad*2,height-rad*2],true);
+                    square([width-rad*2+.01,height-rad*2+.01],true);
+                }
+                if(rad*2 < width || rad*2 < heigth){
+                    echo("Warning: Cube Rounded too small in width or height");
                 }
 
                 
