@@ -19,10 +19,14 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
         translate([x,y,z]){
                 rotate([rotX,rotY,rotZ]){
                     
-                    //Name including portion
-                    #translate([width/2+2,0,0]){
-                        linear_extrude(1){
-                            text(text=name,size=nameSize);
+                    if(namePieces){
+                        //Name including portion
+                        #translate([width/2+2,0,0]){
+                            rotate([90-rotX,-rotY,-rotZ]){
+                                linear_extrude(1){
+                                    text(text=name,size=nameSize);
+                                }
+                            }
                         }
                     }
                     
@@ -160,8 +164,20 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         //capscrew
                     else if(item=="socketHeadM3"){ //DEPRECATED
                         oi("capscrewM3");
+                    }else if(item=="capscrewM25D"){
+                        if(depth==0){
+                            oi("cylinder",rad=gv("CAPSCREW-M25D-TOP"),depth=gv("CAPSCREW-M25D-DEPTH"),z=0);
+                        }else{
+                            oi("cylinder",rad=gv("CAPSCREW-M25D-TOP"),depth=depth,z=0);
+                        }
+
+                        //countersunk
                     }else if(item=="capscrewM3"){
-                        oi("cylinder",rad=gv("CAPSCREW-M3-TOP"),depth=gv("CAPSCREW-M3-DEPTH"),z=0);
+                        if(depth==0){
+                            oi("cylinder",rad=gv("CAPSCREW-M3-TOP"),depth=gv("CAPSCREW-M3-DEPTH"),z=0);
+                        }else{
+                            oi("cylinder",rad=gv("CAPSCREW-M3-TOP"),depth=depth,z=0);
+                        }
                         //countersunk
                     }else if(item=="countersunkM3" || item=="countersinkM3"){
                         translate([0,0,-countersunkM3Depth]){

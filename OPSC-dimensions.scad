@@ -55,7 +55,13 @@
     socketHeadM3Depth = s=="3DPR" ? 3 + 0.4 : 3;
     capscrewM3Depth = socketHeadM3Depth;
     
-        
+
+    socketHeadM25D = s=="3DPR" ? 5/2 + 0.2 : 5/2;
+    capscrewM25DTop = socketHeadM25D;
+    
+    socketHeadM25DDepth = s=="3DPR" ? 2 + 0.2 : 2;
+    capscrewM25DDepth = socketHeadM25DDepth;
+
         //countersunk
     countersunkM25DTop = s=="3DPR" ? 4.6/2+0.6 : 4.6/2;    
     countersunkM25DDepth = s=="3DPR" ? 1.5+0.2 : 1.5;    
@@ -157,6 +163,10 @@ function gv(name) =
     //FASTENERS
     name=="CAPSCREW-M3-TOP"     ? capscrewM3Top :
     name=="CAPSCREW-M3-DEPTH"     ? capscrewM3Depth :
+
+    
+    name=="CAPSCREW-M25D-TOP"     ? capscrewM25DTop :
+    name=="CAPSCREW-M25D-DEPTH"     ? capscrewM25DDepth :
     
     name=="COUNTERSUNK-M3-TOP"     ? countersunkM3Top :
     name=="COUNTERSUNK-M3-DEPTH"     ? countersunkM3Depth :
