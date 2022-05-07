@@ -305,6 +305,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         oi("cube",x=2,y=0,z=0,width=1.5,height=3,depth=500);
                         oi("cube",x=-2,y=0,z=0,width=1.5,height=3,depth=500);
                     }
+                    else if(item=="zipTieBig"){  ///clearnce for an m3 nut
+                        oi("cube",x=3,y=0,z=0,width=2.5,height=5,depth=500);
+                        oi("cube",x=-3,y=0,z=0,width=2.5,height=5,depth=500);
+                    }
                     else {
                         TAXAInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
                         OOBBInsert(item,x,y,z,ex,length,rotX,rotY,rotZ,width,height,depth,rad,color,alpha,OOwidth,OOheight,holes,negative);
