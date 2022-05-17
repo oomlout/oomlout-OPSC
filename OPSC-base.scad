@@ -422,7 +422,7 @@ module OPSCHole(rad,depth=0){
     }
 }
 
-module OPSCRoundedClearance(rad,stretch=15,depth=0){
+module OPSCRoundedClearance(rad,stretch=15,depth=0){    
     hull(){
         oi("hole",rad=rad,x=0,y=0,depth=depth);
         oi("hole",rad=rad,x=0,y=stretch,depth=depth);
@@ -567,4 +567,24 @@ module OPSCoobbHole(OOwidth,OOheight,OOx,OOy){
     x = -OOBBspacing/2 + -(OOwidth * OOBBspacing / 2) + OOx * OOBBspacing;
     y = -OOBBspacing/2 + -(OOheight * OOBBspacing / 2) + OOy * OOBBspacing;
     oi("holeM6",x,y);
+}
+
+module drawLaser(start=0,layers=1,tileDif=200){
+    
+    //draw5();
+    children();
+    for(i=[0:layers]){
+        translate([tileDif*i + 1,0,0]){
+            intersection(){
+                children();
+                if(i==0){
+                    oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i);
+                }else{
+                    oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i + 0.01);
+                }
+            }
+        }
+    }
+    //}
+
 }
