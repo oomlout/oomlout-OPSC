@@ -260,7 +260,7 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     }
                     else if(item=="M3NutCaptive" || item=="nutM3"){
                         if(depth == 0){
-                            #OPSCPolygon(6,0,0,(OPSCNutM3Width/2)+rad,gv("NUT-M3-DEPTH"),0);
+                            OPSCPolygon(6,0,0,(OPSCNutM3Width/2)+rad,gv("NUT-M3-DEPTH"),0);
                         }else{
                             OPSCPolygon(6,0,0,(OPSCNutM3Width/2)+rad,depth,0);
                         }
