@@ -64,7 +64,11 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         oi("hole",x=-width/2,y=-    height/2,depth=depth,rad=rad);
                     } 
                     else if(item=="cubeRounded" || item=="rectRounded" || item=="rectangleRounded"){
-                        OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
+                        if(rad != 0){
+                            OPSCCubeRounded(width=width,height=height,depth=depth,rad=rad);
+                        }else{
+                            OPSCCube(width=width,height=height,depth=depth);
+                        }
                     }
                     else if(item=="holeRect"){
                         OPSCHoleRect(width=width,height=height);
