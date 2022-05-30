@@ -52,7 +52,10 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                         ht=depth;
                         translate([0,0,-ht]){
                             linear_extrude(height=ht){
-                                text(ex,size=height,font="DejaVu Sans Mono",halign="center",valign="center");
+                                text(ex,size=height,font="Relief SingleLine Outline",halign="center",valign="center");
+                                //Uses Relief-SingleLine
+                                //https://github.com/isdat-type/Relief-SingleLine
+                                //OFL-1.1 license
                             }
                         }                        
                     }
