@@ -570,21 +570,23 @@ module OPSCoobbHole(OOwidth,OOheight,OOx,OOy){
 }
 
 module drawLaser(start=0,layers=1,tileDif=200){
-    
-    //draw5();
-    children();
-    for(i=[0:layers]){
-        translate([tileDif*i + 1,0,0]){
-            intersection(){
-                children();
-                if(i==0){
-                    oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i);
-                }else{
-                    oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i + 0.01);
+    projection(){
+        //draw5();
+        //children();
+        for(i=[0:layers]){
+            translate([tileDif*i + 1,0,i*3]){
+                intersection(){
+                    children();
+                    if(i==0){
+                        oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i);
+                    }else{
+                        oi("cube",width=1000,height=1000,depth=0.1,z=start + -3*i + 0.01);
+                    }
                 }
             }
         }
-    }
+    
+}
     //}
 
 }

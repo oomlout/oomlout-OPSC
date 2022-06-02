@@ -44,6 +44,9 @@ module OPSCInsert(item,x=0,y=0,z=0,ex=0,length=0,rotX=0,rotY=0,rotZ=0,width=0,he
                     } 
                     else if(item=="cube" || item=="rect" || item=="rectangle"){
                         OPSCCube(width=width,height=height,depth=depth);
+                    } 
+                    else if(item=="plane"){
+                        OPSCCube(width=1000,height=1000,depth=depth);
                     }
                     else if(item=="triangle"){
                         OPSCTriangle(width=width,height=height,depth=depth,ex=ex);
