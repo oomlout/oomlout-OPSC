@@ -1,7 +1,7 @@
 import subprocess
 
 from solid.objects import *
-from solid import scad_render_to_file
+from solid import scad_render_to_file, scad_render
 
 ##################################################################################################################################################
 ##################################################################################################################################################
@@ -62,6 +62,7 @@ nutM6depth = 0
 
 ######  OOEB
 ooebPinWidth = 0
+ooebPinWidthWide = 0
 
 
 ######  Colors
@@ -176,11 +177,14 @@ def changeMode(m="3DPR"):
     nutM.append([nutM6width,nutM6depth])    
 
     ######  OOEB
-    global ooebPinWidth
+    global ooebPinWidth,  ooebPinWidthWide
 
     ooebPinWidth = 0.6
     if(mode=="3DPR" or mode=="LAZE"):
         ooebPinWidth = 0.6 + 0.6
+    ooebPinWidthWide = 1.2
+    if(mode=="3DPR" or mode=="LAZE"):
+        ooebPinWidthWide = 1.2 + 0.6
 
 
 changeMode()
@@ -253,10 +257,10 @@ def saveToStl(fileIn, fileOut=""):
     saveToFile(fileIn, fileOut)
 
 def saveToFile(fileIn, fileOut,extra=""):
-
+    extra = extra + " --colorscheme Tomorrow"
 
     launchStr = 'openscad -o "' + fileOut + '"' + extra + ' "' + fileIn + '"'
-    print("saveToFile launch string: " + launchStr)
+    print("            saveToFile launch string: " + launchStr)
     subprocess.run(launchStr)
     x=0
 
@@ -313,7 +317,7 @@ def OPSCInsertIf(item,pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,None
     elif(item=="sphere"):        
         returnValue = translate([0,0,-rad])(sphere(r=rad))
     elif(item=="plane"):
-        returnValue = insert("cube",size=[1000,1000,0.1],color=color)    
+        returnValue = insert("cube",size=[1000,1000,0.1],color=color)            
     elif(item=="cubeRounded"):
         if(rad == 0):
                             rad = 5
@@ -415,6 +419,13 @@ class item:
         self.posItems=list()
         self.negItems=list()
 
+    def isEmpty(self):        
+        testString = scad_render(self.getPart())
+        #print("test String length: " + str(len(testString)))
+        returnValue = False
+        if len(testString) == 270:            
+            returnValue = True
+        return returnValue
 
     def addPos(self,part):
         self.posItems.append(part)
