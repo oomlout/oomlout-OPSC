@@ -3,6 +3,8 @@ import subprocess
 from solid.objects import *
 from solid import scad_render_to_file, scad_render
 
+import os
+
 ##################################################################################################################################################
 ##################################################################################################################################################
 ##################################################################################################################################################
@@ -238,6 +240,8 @@ def getMode():
 
 
 def saveToScad(fileName, parts):
+    dir =  os.path.dirname(os.path.abspath(fileName))
+    Path(dir).mkdir(parents=True, exist_ok=True)
     file_out = scad_render_to_file(parts, fileName, file_header=f'$fn = 48;')
 
 
@@ -317,7 +321,10 @@ def OPSCInsertIf(item,pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,None
     elif(item=="sphere"):        
         returnValue = translate([0,0,-rad])(sphere(r=rad))
     elif(item=="plane"):
-        returnValue = insert("cube",size=[1000,1000,0.1],color=color)            
+        if depth == 100:
+            returnValue = insert("cube",size=[1000,1000,0.1],color=color)            
+        else:
+            returnValue = insert("cube",size=[1000,1000,depth],color=color)                        
     elif(item=="cubeRounded"):
         if(rad == 0):
                             rad = 5
