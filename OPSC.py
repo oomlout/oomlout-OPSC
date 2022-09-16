@@ -48,6 +48,7 @@ holeM5 = 0
 holeM6 = 0
 
 ######  Nuts
+nuts = {}
 nutM = []
 NUTWIDTH = 0
 NUTDEPTH = 1
@@ -63,6 +64,10 @@ nutM5width = 0
 nutM5depth = 0
 nutM6width = 0
 nutM6depth = 0
+
+###### Bearings
+bearings = {}
+
 
 ######  OOEB
 ooebPinWidth = 0
@@ -109,6 +114,43 @@ def changeMode(m="3DPR"):
     #print("####################################################      CHANGING MODES TO: " + m)
     global mode
     mode = m
+    ######  Bearings
+    bearings["606"] = { 
+                        "BIG"           : 17/2,
+                        "LITTLE"        : 14/2,
+                        "INSIDE"        : 6/2,
+                        "INSIDEBIG"     : 6/2 + (3/2),
+                        "OUTSIDE"       : 17/2,
+                        "OUTSIDELITTLE" : 15/2,
+                        "INSIDELITTLE"  : (6+1.5)/2,
+                        "DEPTH"         : 6,
+                        "BPHOLES"       : [9.445]
+                        }
+    bearings["6810"] = { 
+                        "BIG"           : 65/2,
+                        "LITTLE"        : 65/2-(3/2),
+                        "INSIDE"        : 50/2,
+                        "INSIDEBIG"     : (50/2+(3/2)),
+                        "OUTSIDE"       : 65/2,
+                        "OUTSIDELITTLE" : 65/2-(3/2),
+                        "INSIDELITTLE"  : 50/2,
+                        "DEPTH"         : 6.5,
+                        "BPHOLES"       : [25,9.445]            
+                        }
+
+    if mode == "3DPR":
+        bearings["606"]["BIG"] =      17.5/2
+        bearings["606"]["LITTLE"] =   14.5/2
+        bearings["606"]["INSIDE"] =   5.8/2
+        bearings["606"]["OUTSIDE"] =  (17+0.25)/2
+        bearings["606"]["DEPTH"] =    6.5
+                            
+        bearings["6810"]["INSIDE"] =       (50/2-(1/2))
+        bearings["6810"]["OUTSIDE"] =      65/2+(1/2)
+        bearings["6810"]["INSIDELITTLE"] = 50/2-(1/2)
+        bearings["6810"]["DEPTH"] =        6.5           
+                            
+    
     ######  Countersunk
     global countersunkM, countersunkM1width, countersunkM1depth, countersunkM2width, countersunkM2depth, countersunkM3width, countersunkM3depth, countersunkM4width, countersunkM4depth, countersunkM5width, countersunkM5depth, countersunkM6width, countersunkM6depth
     countersunkM = []
@@ -152,6 +194,16 @@ def changeMode(m="3DPR"):
     holeM.append(holeM7)
     holeM.append(holeM8)
     #####  Nuts
+    nuts["M6"] = {
+                    "WIDTH" : 10,
+                    "MAJORWIDTH" : (10 * 1.154),
+                    "DEPTH" : 5
+                    }
+    if mode == "3DPR":
+        nuts["M6"]["WIDTH"] = 11                 
+        nuts["M6"]["MAJORWIDTH"] = (11 * 1.154)
+        nuts["M6"]["DEPTH"] = 6
+
     global nutM, nutM1width, nutM1depth, nutM2width, nutM2depth, nutM3width, nutM3depth, nutM4width, nutM4depth, nutM5width, nutM5depth, nutM6width, nutM6depth
     nutM = []
     nutM.append([0,0]) 
@@ -345,6 +397,35 @@ def OPSCInsertIf(item,pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,None
                                 )
                             )
         )
+    ######  Bearing
+    elif("bearing" in item.lower()):
+        size = item.replace("bearing","")    
+        #m="#"
+        if size == "606":
+            rad = bearings[size]["OUTSIDE"]
+            depth = bearings[size]["DEPTH"]
+            bearingFull = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+            rad = bearings[size]["OUTSIDELITTLE"]
+            depth = 100
+            outsideLittle = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+            returnValue = bearingFull + outsideLittle
+        else:
+            rad = bearings[size]["OUTSIDE"]
+            depth = bearings[size]["DEPTH"]
+            bearingFull = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+            rad = bearings[size]["INSIDE"]
+            depth = bearings[size]["DEPTH"]
+            bearingInside = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+            rad = bearings[size]["OUTSIDELITTLE"]
+            depth = 100
+            outsideLittle = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+            rad = bearings[size]["INSIDEBIG"]
+            depth = 100
+            insideBig = insert("cylinder",rad=rad,depth=depth,z=depth/2,m=m)
+
+            outside = difference()(outsideLittle,insideBig)
+            inside = difference()(bearingFull,bearingInside)
+            returnValue = outside + inside
     ######  Countersunk
     elif(item == "countersunkM1" or item == "csM1" ):
         returnValue = OSPCgetCountersunk(rad=1,m=m)
@@ -364,23 +445,23 @@ def OPSCInsertIf(item,pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,None
 
     ######  Holes    
     elif(item == "holeM1"):
-        returnValue = OSPCgetHole(rad=1,m=m)
+        returnValue = OSPCgetHole(rad=1,depth=depth,m=m)
     elif(item == "holeM2"):
-        returnValue = OSPCgetHole(rad=2,m=m)
+        returnValue = OSPCgetHole(rad=2,depth=depth,m=m)
     elif(item == "holeM3"):
-        returnValue = OSPCgetHole(rad=3,m=m)
+        returnValue = OSPCgetHole(rad=3,depth=depth,m=m)
     elif(item == "holeM4"):
-        returnValue = OSPCgetHole(rad=4,m=m)
+        returnValue = OSPCgetHole(rad=4,depth=depth,m=m)
     elif(item == "holeM5"):
-        returnValue = OSPCgetHole(rad=5,m=m)
+        returnValue = OSPCgetHole(rad=5,depth=depth,m=m)
     elif(item == "holeM6"):
-        returnValue = OSPCgetHole(rad=6,m=m)
+        returnValue = OSPCgetHole(rad=6,depth=depth,m=m)
     elif(item == "holeM7"):
-        returnValue = OSPCgetHole(rad=7,m=m)
+        returnValue = OSPCgetHole(rad=7,depth=depth,m=m)
     elif(item == "holeM8"):
-        returnValue = OSPCgetHole(rad=8,m=m)
+        returnValue = OSPCgetHole(rad=8,depth=depth,m=m)
     elif(item == "hole"):
-        returnValue = OSPCgetHole(rad=rad,m=m)
+        returnValue = OSPCgetHoleRad(rad=rad,depth=depth,m=m)
 
     ######  Nuts
     elif(item == "nutM1"):
@@ -401,8 +482,14 @@ def OPSCInsertIf(item,pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,None
 
                 
 
-def OSPCgetHole(rad,m=""):
-    return translate([0,0,-250])(cylinder(r=holeM[rad],h=500).set_modifier(m))
+def OSPCgetHole(rad,depth=0,m=""):
+    if depth == 0 or depth == 100:
+        return translate([0,0,-250])(cylinder(r=holeM[rad],h=500).set_modifier(m))
+    else:    
+        return cylinder(r=holeM[rad],h=depth).set_modifier(m)
+
+def OSPCgetHoleRad(rad,m=""):
+    return translate([0,0,-250])(cylinder(r=rad,h=500).set_modifier(m))
 
 def OSPCgetNut(rad,depth,m=""):
     depth = nutM[rad][NUTDEPTH] if depth==100 else depth
