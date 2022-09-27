@@ -700,7 +700,7 @@ def OSPCgetHoleRad(rad,depth=0,m=""):
     return translate([0,0,-250])(cylinder(r=rad,h=500).set_modifier(m))
 
 def OSPCgetNut(rad,depth,extra=0,m=""):
-    depth = nutM[rad]["DEPTH"] if depth==100 else depth
+    depth = d["NUTS"]["M" + str(rad)]["DEPTH"] if depth==100 else depth
     returnValue = OPSChexagon(nutM[rad][NUTWIDTH]+extra,depth=depth+extra,m=m)
     return returnValue
 
