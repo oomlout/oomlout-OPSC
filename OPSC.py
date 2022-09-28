@@ -72,6 +72,9 @@ nutM5depth = 0
 nutM6width = 0
 nutM6depth = 0
 
+######  Plastic Rivet
+d["PLASTICRIVET"] = {}
+
 ######  Socket Caps
 d["SOCKETCAPS"] = {}
 
@@ -285,6 +288,22 @@ def changeMode(m="3DPR"):
     nutM6width = 11 if mode== "3DPR" else 10
     nutM6depth = 5 if mode== "3DPR" else 5
     nutM.append([nutM6width,nutM6depth])    
+
+    ######  Plastic Rivets
+    d["PLASTICRIVET"]["M2"] = {}
+    d["PLASTICRIVET"]["M2"]["OD"]     = 4.2/2
+    d["PLASTICRIVET"]["M2"]["DEPTH"]  = 1.2
+    d["PLASTICRIVET"]["M2.7"] = {}
+    d["PLASTICRIVET"]["M2.7"]["OD"]     = 5/2
+    d["PLASTICRIVET"]["M2.7"]["DEPTH"]  = 1.4
+    d["PLASTICRIVET"]["M3"] = {}
+    d["PLASTICRIVET"]["M3"]["OD"]     = 6.4/2
+    d["PLASTICRIVET"]["M3"]["DEPTH"]  = 1.6
+
+    if mode == "3DPR":
+        for t in d["PLASTICRIVET"]:
+                d["PLASTICRIVET"][t]["OD"] = d["PLASTICRIVET"][t]["OD"] + 1/2
+                d["PLASTICRIVET"][t]["DEPTH"] = d["PLASTICRIVET"][t]["DEPTH"] + 0.5
 
     ######  SocketCap
     d["SOCKETCAPS"]["M3"] = {}
@@ -617,31 +636,16 @@ def OPSCInsertIf(item="",pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,N
     elif(item == "countersunk" or item == "cs"):
         returnValue = OSPCgetCountersunk(rad=rad,m=m)
 
-
-    ######  Holes    
-    elif(item == "holeM1"):
-        returnValue = OSPCgetHole(rad=1,depth=depth,m=m)
-    elif(item == "holeM2"):
-        returnValue = OSPCgetHole(rad=2,depth=depth,m=m)
-    elif(item == "holeM3"):
-        returnValue = OSPCgetHole(rad=3,depth=depth,m=m)
-    elif(item == "holeM4"):
-        returnValue = OSPCgetHole(rad=4,depth=depth,m=m)
-    elif(item == "holeM5"):
-        returnValue = OSPCgetHole(rad=5,depth=depth,m=m)
-    elif(item == "holeM6"):
-        returnValue = OSPCgetHole(rad=6,depth=depth,m=m)
-    elif(item == "holeM7"):
-        returnValue = OSPCgetHole(rad=7,depth=depth,m=m)
-    elif(item == "holeM8"):
-        returnValue = OSPCgetHole(rad=8,depth=depth,m=m)
-    elif(item == "hole"):
-        returnValue = OSPCgetHoleRad(rad=rad,depth=depth,m=m)
-
     ######  Hole Slotted
-    if "holeslotted" in item.lower():
+    elif "holeslotted" in item.lower():
         size = item.upper().replace("HOLESLOTTED","")
         returnValue = OSPCgetHoleSlotted(size=size,depth=depth,ex=ex,m=m)
+    ######  Holes    
+    elif("hole" in item.lower()):
+        size = size = item.upper().replace("HOLE","")
+        returnValue = OSPCgetHole(size=size,depth=depth,m=m)
+
+    
     ######  Nuts
     elif(item == "nutM1"):
         returnValue = OSPCgetNut(rad=1,depth=depth,extra=ex,m=m)
@@ -659,33 +663,46 @@ def OPSCInsertIf(item="",pos=[None,None,None],x=0,y=0,z=0,ex=0,size=[None,None,N
         returnValue = OSPCgetNut(rad=rad,depth=depth,extra=ex,m=m)
     
     ###### NutSideInsert
-    if "nutsideinsert" in item.lower():
+    elif "nutsideinsert" in item.lower():
         size = item.lower().replace("nutsideinsert","").upper()
         returnValue = OSPCgetNutSideInsert(size=size,depth=depth,extra=ex,m=m)
 
+    elif("plasticrivet" in item.lower()):
+        size = item.upper().replace("PLASTICRIVET","")
+        rad = d["PLASTICRIVET"][size]["OD"]
+        dd = d["PLASTICRIVET"][size]["DEPTH"]
+        returnValue = insert("cylinder",z=0,rad=rad,depth=dd,m=m)
+
     ######  Rounded Clearance
-    if(item.lower() =="roundedclearance"):
+    elif(item.lower() =="roundedclearance"):
         if rad == 0:
             rad = 12/2
         returnValue = OSPCgetRoundedClearance(rad=rad,depth=depth,m=m)
 
     ######  Socket Caps
-    if("socketcap" in item.lower()):
+    elif("socketcap" in item.lower()):
         size = item.upper().replace("SOCKETCAP","")
-        dd = d["SOCKETCAPS"][size]["DEPTH"]
+        if depth == 0 or depth == 100:
+            dd = d["SOCKETCAPS"][size]["DEPTH"]
+        else:
+            dd = depth
         returnValue = insert("cylinder",z=0,rad=d["SOCKETCAPS"][size]["RAD"],depth=dd,m=m)
     
 
     return returnValue    
                 
 
-def OSPCgetHole(rad,depth=0,m=""):
+def OSPCgetHole(size,depth=0,m=""):
+    if "M" in size:
+        rad =  d["HOLES"][size]
+    else:
+        rad = float(size)/2
     if depth == 0 or depth == 100:
-        return translate([0,0,-250])(cylinder(r=holeM[rad],h=500).set_modifier(m))
+        return translate([0,0,-250])(cylinder(r=rad,h=500).set_modifier(m))
     else:    
-        return cylinder(r=holeM[rad],h=depth).set_modifier(m)
+        return cylinder(r=rad,h=depth).set_modifier(m)
 
-def OSPCgetHoleSlotted(size,depth=0,ex="",m=""):
+def OSPCgetHoleSlotted(size,depth=0,ex="",m=""):    
     slotSize = 0
     if ex == "":
         slotSize = 10
